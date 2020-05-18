@@ -1,6 +1,7 @@
 #' @importFrom usethis ui_info ui_done ui_value ui_code
-#' @importFrom httr GET status_code
+#' @importFrom httr GET status_code content stop_for_status
 #' @importFrom utils URLencode
+#' @importFrom jsonlite fromJSON
 
 
 ## URLs Handlers Functions ----
@@ -104,6 +105,38 @@ omdb_check_token <- function(token) {
   if (httr::status_code(response) != 200) {
     stop("Unauthorized (HTTP 401): invalid OMDb API Key")
   }
+}
+
+
+## API Requests/Parser ----
+
+send_request <- function(request) {
+
+  response <- httr::GET(request)
+  httr::stop_for_status(response)
+
+  return(response)
+}
+
+parse_response <- function(response) {
+
+  response <- httr::content(response, as = "text")
+  content  <- jsonlite::fromJSON(response)
+
+  if (!is.null(content$Response)) {     # OMDb API
+
+    if (content$Response == "False") {
+      stop("Invalid IMDb ID.")
+    }
+
+  } else {                              # YTS API
+
+    if (content$data$movie$id == 0) {
+      stop("Invalid IMDb ID.")
+    }
+  }
+
+  return(content)
 }
 
 
