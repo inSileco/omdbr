@@ -1,5 +1,6 @@
 #' @importFrom usethis ui_info ui_done ui_value ui_code
 #' @importFrom httr GET status_code
+#' @importFrom utils URLencode
 
 
 ## URLs Handlers Functions ----
@@ -103,4 +104,54 @@ omdb_check_token <- function(token) {
   if (httr::status_code(response) != 200) {
     stop("Unauthorized (HTTP 401): invalid OMDb API Key")
   }
+}
+
+
+## Strings Functions ----
+
+encode_url <- function(x) {
+
+  utils::URLencode(x)
+}
+
+rm_multispaces <- function(x) {
+
+  x <- as.character(x)
+  x <- gsub("\\s+", " ", x)
+  gsub("^\\s|\\s$", "", x)
+}
+
+rm_punctuation <- function(x, separator = "-", lower_case = FALSE,
+                          upper_case = FALSE) {
+
+  x <- as.character(x)
+
+  if (lower_case) {
+    x <- tolower(x)
+  }
+
+  if (upper_case) {
+    x <- toupper(x)
+  }
+
+  x <- gsub("[[:punct:]]", " ", x)
+  x <- rm_multispaces(x)
+
+  gsub("\\s", separator, x)
+}
+
+rm_brackets <- function(x) {
+
+  x <- as.character(x)
+  x <- unlist(
+    lapply(
+      strsplit(x, ", ")[[1]],
+      function(x) {
+        x <- gsub("\\(.+\\)", "", x)
+        rm_multispaces(x)
+      }
+    )
+  )
+
+  paste0(x, collapse = ", ")
 }
