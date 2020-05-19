@@ -100,7 +100,7 @@ get_details <- function(imdb_id, path = ".", print = TRUE) {
 
   response <- send_request(request)
 
-  content  <- parse_response(response)
+  content  <- parse_response(response, api = "omdb")
   names(content) <- tolower(names(content))
 
 
