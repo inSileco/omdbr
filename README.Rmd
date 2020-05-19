@@ -101,7 +101,7 @@ for (imdb_id in imdb_ids) {
 <br />
 
 <p align="center">
-```{r cover2, echo = FALSE, eval = TRUE, out.width = "25%"}
+```{r cover2, echo = FALSE, eval = TRUE, out.width = "24.5%", out.extra='style="background-color: white; padding:2px; display: inline-block;"'}
 tdl <- "README_files/figures/tt0838221.jpg"
 knitr::include_graphics(tdl)
 tdl <- "README_files/figures/tt2278388.jpg"

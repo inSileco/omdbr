@@ -226,7 +226,7 @@ and [Moonrise Kingdom](https://www.imdb.com/title/tt1748122)?
 
 <p align="center">
 
-<img src="README_files/figures/tt0838221.jpg" width="25%" /><img src="README_files/figures/tt2278388.jpg" width="25%" /><img src="README_files/figures/tt0362270.jpg" width="25%" /><img src="README_files/figures/tt1748122.jpg" width="25%" />
+<img src="README_files/figures/tt0838221.jpg" width="24.5%" style="background-color: white; padding:2px; display: inline-block;" /><img src="README_files/figures/tt2278388.jpg" width="24.5%" style="background-color: white; padding:2px; display: inline-block;" /><img src="README_files/figures/tt0362270.jpg" width="24.5%" style="background-color: white; padding:2px; display: inline-block;" /><img src="README_files/figures/tt1748122.jpg" width="24.5%" style="background-color: white; padding:2px; display: inline-block;" />
 
 </p>
 
