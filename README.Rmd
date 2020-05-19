@@ -1,0 +1,139 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse  = TRUE,
+  comment   = "##",
+  fig.path  = "README_files/figures",
+  out.width = "100%"
+)
+```
+
+
+# omdbr
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The package `omdbr` is an R client to the OMDb API [OMDb API](http://www.omdbapi.com).
+User can retrieve informations about a given movie (title, actors, year, genres, etc.)
+and download movie poster (if available).
+
+<br />
+
+## Installation
+
+To install the `omdbr` package:
+
+```{r echo = TRUE, eval = FALSE}
+remotes::install_github("inSileco/omdbr")
+library(omdbr)
+```
+
+<br />
+
+## Prerequisites
+
+This package uses the [OMDb API](http://www.omdbapi.com) to access data on movies.
+You have to obtained an API key [here](http://www.omdbapi.com/apikey.aspx).
+When using the package for the first time, you'll be guided to store your API key.
+
+<br />
+
+## Usage
+
+Let's get informations and cover about the
+[The Darjeeling Limited](https://imdb.com/title/tt0838221) movie directed by
+[Wes Anderson](https://en.wikipedia.org/wiki/Wes_Anderson). For the moment, the
+package requires the IMDb Identifier of the movie. You can find this ID by
+searching the movie on the [IMDb website](https://imdb.com) and extract it from
+the URL (format: tt9999999).
+
+The URL of _The Darjeeling Limited_ is:
+[https://imdb.com/title/tt0838221](https://imdb.com/title/tt0838221), and the
+IMDb ID is: `tt0838221`.
+
+```{r echo = TRUE, eval = TRUE}
+imdb_id <- "tt0838221"             ## imdb id of the movie
+path    <- "~/Desktop/medias"      ## folder to store results
+```
+
+<br />
+
+Let's retrieve informations about the movie with the function `get_details()`:
+
+```{r echo = TRUE, eval = TRUE}
+## Get informations about the movie ----
+x <- get_details(imdb_id, path)
+```
+
+<br />
+
+Now, we can try to download the movie poster with the function `get_cover()`:
+
+```{r echo = TRUE, eval = TRUE}
+## Download movie poster ----
+get_cover(imdb_id, path)
+```
+
+
+<br />
+
+What about
+[The Grand Budapest Hotel](https://imdb.com/title/tt2278388),
+[The Life Aquatic with Steve Zissou](https://imdb.com/title/tt0362270), and
+[Moonrise Kingdom](https://www.imdb.com/title/tt1748122)?
+
+
+```{r echo = FALSE, eval = TRUE}
+imdb_ids <- c("tt2278388", "tt0362270", "tt1748122")
+for (imdb_id in imdb_ids) {
+  x <- get_details(imdb_id, path)
+  get_cover(imdb_id, path)
+  cat("\n")
+}
+```
+
+<p align="center">
+```{r cover2, echo = FALSE, eval = TRUE, out.width = "25%"}
+tdl <- "README_files/figures/tt0838221.jpg"
+knitr::include_graphics(tdl)
+tdl <- "README_files/figures/tt2278388.jpg"
+knitr::include_graphics(tdl)
+tdl <- "README_files/figures/tt0362270.jpg"
+knitr::include_graphics(tdl)
+tdl <- "README_files/figures/tt1748122.jpg"
+knitr::include_graphics(tdl)
+```
+</p>
+
+<br />
+
+
+Results are stored as follow:
+
+```{r echo = TRUE, eval = FALSE}
+├── covers
+│   ├── tt0362270.jpg
+│   ├── tt0838221.jpg
+│   ├── tt1748122.jpg
+│   └── tt2278388.jpg
+└── data
+    ├── tt0362270.yml
+    ├── tt0838221.yml
+    ├── tt1748122.yml
+    └── tt2278388.yml
+
+2 directories, 8 files
+```
+
+<br />
+
+
+## Coming soon
+
+- [ ] Implement `find_imdb_id()` function to search for terms
