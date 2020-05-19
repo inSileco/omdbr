@@ -126,13 +126,13 @@ parse_response <- function(response) {
   if (!is.null(content$Response)) {     # OMDb API
 
     if (content$Response == "False") {
-      stop("Invalid IMDb ID.")
+      stop("IMDb ID not found.")
     }
 
   } else {                              # YTS API
 
     if (content$data$movie$id == 0) {
-      stop("Invalid IMDb ID.")
+      stop("IMDb ID not found.")
     }
   }
 
