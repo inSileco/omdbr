@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_details.R
 \name{get_details}
 \alias{get_details}
-\title{Retrieves Metadata of a Movie}
+\title{Retrieve Metadata of a Movie}
 \usage{
 get_details(imdb_id, path = ".", print = TRUE)
 }

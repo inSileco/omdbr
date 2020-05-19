@@ -1,4 +1,4 @@
-#' Retrieves Metadata of a Movie
+#' Retrieve Metadata of a Movie
 #'
 #' This function retrieves movie metadata (title, actors, year, genres, etc.)
 #' using the OMDb API \url{http://www.omdbapi.com/}. Results are exported in a
