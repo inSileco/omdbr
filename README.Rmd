@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The package `omdbr` is an R client to the OMDb API [OMDb API](http://www.omdbapi.com).
+The package `omdbr` is an R client to the [OMDb API](http://www.omdbapi.com).
 User can retrieve informations about a given movie (title, actors, year, genres, etc.)
 and download movie poster (if available).
 
@@ -97,6 +97,8 @@ for (imdb_id in imdb_ids) {
   cat("\n")
 }
 ```
+
+<br />
 
 <p align="center">
 ```{r cover2, echo = FALSE, eval = TRUE, out.width = "25%"}

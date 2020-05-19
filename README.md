@@ -7,7 +7,7 @@
 
 <!-- badges: end -->
 
-The package `omdbr` is an R client to the OMDb API [OMDb
+The package `omdbr` is an R client to the [OMDb
 API](http://www.omdbapi.com). User can retrieve informations about a
 given movie (title, actors, year, genres, etc.) and download movie
 poster (if available).
@@ -221,6 +221,8 @@ and [Moonrise Kingdom](https://www.imdb.com/title/tt1748122)?
     ##    
     ## ────────────────────────────────────────────────────────────────────────────────
     ## ✔ Cover found for 'tt1748122' !
+
+<br />
 
 <p align="center">
 
