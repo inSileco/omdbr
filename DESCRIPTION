@@ -18,7 +18,9 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
 Imports:
+    cli,
+    utils,
     usethis,
     httr,
-    utils,
-    jsonlite
+    jsonlite,
+    yaml
