@@ -156,6 +156,7 @@ get_details <- function(imdb_id, path = ".", print = TRUE) {
   to_store <- yaml::as.yaml(content, indent.mapping.sequence = TRUE)
   to_store <- gsub("\\\n", "\n  ", to_store)
   to_store <- gsub("imdbid:", "- imdbid:", to_store)
+  to_store <- gsub("\\\n  $", "\n", to_store)
 
   cat(to_store, file = file.path(path, "data", paste0(imdb_id, ".yml")))
 
@@ -171,7 +172,7 @@ get_details <- function(imdb_id, path = ".", print = TRUE) {
   if (print) {
 
     cli::cat_rule()
-    cat("\n", to_store, "\n")
+    cat(paste0("\n", to_store, "\n"))
     cli::cat_rule()
   }
 
