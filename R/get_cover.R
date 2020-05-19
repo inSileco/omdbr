@@ -44,6 +44,8 @@ get_cover <- function(imdb_id, path = ".") {
     stop(paste("Directory <", path, "> does not exist."))
   }
 
+  dir.create(file.path(path, "covers"), showWarnings = FALSE)
+
   request  <- yts_full_url(
     "list_movies.json",
     "?query_term=",
@@ -71,7 +73,7 @@ get_cover <- function(imdb_id, path = ".") {
       attempt <- tryCatch({
         utils::download.file(
           url      = image_url,
-          destfile = file.path(path, paste0(imdb_id, ".jpg")),
+          destfile = file.path(path, "covers", paste0(imdb_id, ".jpg")),
           quiet    = TRUE
         )},
         error = function(e){}

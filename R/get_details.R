@@ -90,6 +90,8 @@ get_details <- function(imdb_id, path = ".", print = TRUE) {
     stop(paste("Directory <", path, "> does not exist."))
   }
 
+  dir.create(file.path(path, "data"), showWarnings = FALSE)
+
   request  <- omdb_full_url(
     "?apikey=", omdb_get_token(),
     "&i=", imdb_id
@@ -155,7 +157,7 @@ get_details <- function(imdb_id, path = ".", print = TRUE) {
   to_store <- gsub("\\\n", "\n  ", to_store)
   to_store <- gsub("imdbid:", "- imdbid:", to_store)
 
-  cat(to_store, file = file.path(path, paste0(imdb_id, ".yml")))
+  cat(to_store, file = file.path(path, "data", paste0(imdb_id, ".yml")))
 
 
   ## Convert to data frame ----
