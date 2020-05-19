@@ -2,6 +2,7 @@
 
 export(get_cover)
 export(get_details)
+export(read_details)
 importFrom(cli,cat_rule)
 importFrom(httr,GET)
 importFrom(httr,content)
@@ -17,4 +18,5 @@ importFrom(usethis,ui_value)
 importFrom(utils,URLencode)
 importFrom(utils,download.file)
 importFrom(yaml,as.yaml)
+importFrom(yaml,read_yaml)
 importFrom(yaml,yaml.load)

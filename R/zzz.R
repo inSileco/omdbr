@@ -2,6 +2,7 @@
 #' @importFrom httr GET status_code content stop_for_status
 #' @importFrom utils URLencode
 #' @importFrom jsonlite fromJSON
+#' @importFrom yaml read_yaml
 
 
 ## URLs Handlers Functions ----
@@ -189,4 +190,14 @@ rm_brackets <- function(x) {
   )
 
   paste0(x, collapse = ", ")
+}
+
+
+yml_to_list <- function(filename) {
+
+  data <- yaml::read_yaml(filename)
+  data <- jsonlite::toJSON(data)
+  data <- jsonlite::fromJSON(data)
+
+  as.data.frame(data, stringsAsFactors = FALSE)
 }
