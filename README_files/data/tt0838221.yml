@@ -1,0 +1,31 @@
+- imdbid: tt0838221
+  type: movie
+  title: The Darjeeling Limited
+  year: 2007.0
+  runtime: 91.0
+  director: Wes Anderson
+  writer:
+    - Wes Anderson
+    - Roman Coppola
+    - Jason Schwartzman
+  actors:
+    - Owen Wilson
+    - Adrien Brody
+    - Jason Schwartzman
+    - Amara Karan
+  genre:
+    - Adventure
+    - Comedy
+    - Drama
+  plot: A year after their father's funeral, three brothers travel across India by train
+    in an attempt to bond with each other.
+  language:
+    - English
+    - Hindi
+    - German
+    - Punjabi
+    - Tibetan
+    - French
+  country: USA
+  imdbrating: 7.2
+  slug: the-darjeeling-limited-2007

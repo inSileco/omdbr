@@ -1,0 +1,32 @@
+- imdbid: tt2278388
+  type: movie
+  title: The Grand Budapest Hotel
+  year: 2014.0
+  runtime: 99.0
+  director: Wes Anderson
+  writer:
+    - Stefan Zweig
+    - Wes Anderson
+    - Wes Anderson
+    - Hugo Guinness
+  actors:
+    - Ralph Fiennes
+    - F. Murray Abraham
+    - Mathieu Amalric
+    - Adrien Brody
+  genre:
+    - Adventure
+    - Comedy
+    - Crime
+  plot: A writer encounters the owner of an aging high-class hotel, who tells him of
+    his early years serving as a lobby boy in the hotel's glorious years under an exceptional
+    concierge.
+  language:
+    - English
+    - French
+    - German
+  country:
+    - Germany
+    - USA
+  imdbrating: 8.1
+  slug: the-grand-budapest-hotel-2014

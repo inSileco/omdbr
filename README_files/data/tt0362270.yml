@@ -1,0 +1,35 @@
+- imdbid: tt0362270
+  type: movie
+  title: The Life Aquatic with Steve Zissou
+  year: 2004.0
+  runtime: 119.0
+  director: Wes Anderson
+  writer:
+    - Wes Anderson
+    - Noah Baumbach
+  actors:
+    - Bill Murray
+    - Owen Wilson
+    - Cate Blanchett
+    - Anjelica Huston
+  genre:
+    - Action
+    - Adventure
+    - Comedy
+    - Drama
+    - Romance
+  plot: With a plan to exact revenge on a mythical shark that killed his partner, Oceanographer
+    Steve Zissou (Bill Murray) rallies a crew that includes his estranged wife, a journalist,
+    and a man who may or may not be his son.
+  language:
+    - English
+    - Icelandic
+    - Filipino
+    - Portuguese
+    - French
+    - Tagalog
+    - German
+    - Italian
+  country: USA
+  imdbrating: 7.3
+  slug: the-life-aquatic-with-steve-zissou-2004

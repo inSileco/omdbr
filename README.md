@@ -48,7 +48,7 @@ The URL of *The Darjeeling Limited* is:
 
 ``` r
 imdb_id <- "tt0838221"             ## imdb id of the movie
-path    <- "~/Desktop/medias"      ## folder to store results
+path    <- "README_files/"         ## folder to store results
 ```
 
 <br />
@@ -61,7 +61,7 @@ Let’s retrieve informations about the movie with the function
 x <- get_details(imdb_id, path)
 ## ────────────────────────────────────────────────────────────────────────────────
 ## 
-##  - imdbid: tt0838221
+## - imdbid: tt0838221
 ##   type: movie
 ##   title: The Darjeeling Limited
 ##   year: 2007.0
@@ -92,7 +92,7 @@ x <- get_details(imdb_id, path)
 ##   country: USA
 ##   imdbrating: 7.2
 ##   slug: the-darjeeling-limited-2007
-##    
+## 
 ## ────────────────────────────────────────────────────────────────────────────────
 ```
 
@@ -115,7 +115,7 @@ and [Moonrise Kingdom](https://www.imdb.com/title/tt1748122)?
 
     ## ────────────────────────────────────────────────────────────────────────────────
     ## 
-    ##  - imdbid: tt2278388
+    ## - imdbid: tt2278388
     ##   type: movie
     ##   title: The Grand Budapest Hotel
     ##   year: 2014.0
@@ -147,13 +147,13 @@ and [Moonrise Kingdom](https://www.imdb.com/title/tt1748122)?
     ##     - USA
     ##   imdbrating: 8.1
     ##   slug: the-grand-budapest-hotel-2014
-    ##    
+    ## 
     ## ────────────────────────────────────────────────────────────────────────────────
     ## ✔ Cover found for 'tt2278388' !
     ## 
     ## ────────────────────────────────────────────────────────────────────────────────
     ## 
-    ##  - imdbid: tt0362270
+    ## - imdbid: tt0362270
     ##   type: movie
     ##   title: The Life Aquatic with Steve Zissou
     ##   year: 2004.0
@@ -188,13 +188,13 @@ and [Moonrise Kingdom](https://www.imdb.com/title/tt1748122)?
     ##   country: USA
     ##   imdbrating: 7.3
     ##   slug: the-life-aquatic-with-steve-zissou-2004
-    ##    
+    ## 
     ## ────────────────────────────────────────────────────────────────────────────────
     ## ✔ Cover found for 'tt0362270' !
     ## 
     ## ────────────────────────────────────────────────────────────────────────────────
     ## 
-    ##  - imdbid: tt1748122
+    ## - imdbid: tt1748122
     ##   type: movie
     ##   title: Moonrise Kingdom
     ##   year: 2012.0
@@ -218,7 +218,7 @@ and [Moonrise Kingdom](https://www.imdb.com/title/tt1748122)?
     ##   country: USA
     ##   imdbrating: 7.8
     ##   slug: moonrise-kingdom-2012
-    ##    
+    ## 
     ## ────────────────────────────────────────────────────────────────────────────────
     ## ✔ Cover found for 'tt1748122' !
 
@@ -226,7 +226,7 @@ and [Moonrise Kingdom](https://www.imdb.com/title/tt1748122)?
 
 <p align="center">
 
-<img src="README_files/figures/tt0838221.jpg" width="25%" /><img src="README_files/figures/tt2278388.jpg" width="25%" /><img src="README_files/figures/tt0362270.jpg" width="25%" /><img src="README_files/figures/tt1748122.jpg" width="25%" />
+<img src="README_files/covers/tt0362270.jpg" width="25%" /><img src="README_files/covers/tt0838221.jpg" width="25%" /><img src="README_files/covers/tt1748122.jpg" width="25%" /><img src="README_files/covers/tt2278388.jpg" width="25%" />
 
 </p>
 
@@ -235,6 +235,7 @@ and [Moonrise Kingdom](https://www.imdb.com/title/tt1748122)?
 Results are stored as follow:
 
 ``` r
+README_files
 ├── covers
 │   ├── tt0362270.jpg
 │   ├── tt0838221.jpg
@@ -251,6 +252,21 @@ Results are stored as follow:
 
 <br />
 
-## Coming soon
+Let’s import informations on these four movies:
 
-  - [ ] Implement `find_imdb_id()` function to search for terms
+``` r
+## Read Movies Details ----
+movies <- read_details(path)
+
+movies[ , c("imdbid", "title", "year", "runtime", "imdbrating")]
+##      imdbid                              title year runtime imdbrating
+## 1 tt0362270 The Life Aquatic with Steve Zissou 2004     119        7.3
+## 2 tt0838221             The Darjeeling Limited 2007      91        7.2
+## 3 tt1748122                   Moonrise Kingdom 2012      94        7.8
+## 4 tt2278388           The Grand Budapest Hotel 2014      99        8.1
+```
+
+<br />
+
+:construction\_worker: **This package is still under development and
+some other goodies will be available soon\!**

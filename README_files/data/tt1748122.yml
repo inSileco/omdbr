@@ -1,0 +1,24 @@
+- imdbid: tt1748122
+  type: movie
+  title: Moonrise Kingdom
+  year: 2012.0
+  runtime: 94.0
+  director: Wes Anderson
+  writer:
+    - Wes Anderson
+    - Roman Coppola
+  actors:
+    - Bruce Willis
+    - Edward Norton
+    - Bill Murray
+    - Frances McDormand
+  genre:
+    - Comedy
+    - Drama
+    - Romance
+  plot: A pair of young lovers flee their New England town, which causes a local search
+    party to fan out to find them.
+  language: English
+  country: USA
+  imdbrating: 7.8
+  slug: moonrise-kingdom-2012

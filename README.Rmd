@@ -8,7 +8,6 @@ output: github_document
 knitr::opts_chunk$set(
   collapse  = TRUE,
   comment   = "##",
-  fig.path  = "README_files/figures",
   out.width = "100%"
 )
 ```
@@ -59,7 +58,7 @@ IMDb ID is: `tt0838221`.
 
 ```{r echo = TRUE, eval = TRUE}
 imdb_id <- "tt0838221"             ## imdb id of the movie
-path    <- "~/Desktop/medias"      ## folder to store results
+path    <- "README_files/"         ## folder to store results
 ```
 
 <br />
@@ -101,15 +100,12 @@ for (imdb_id in imdb_ids) {
 <br />
 
 <p align="center">
-```{r cover2, echo = FALSE, eval = TRUE, out.width = "25%"}
-tdl <- "README_files/figures/tt0838221.jpg"
-knitr::include_graphics(tdl)
-tdl <- "README_files/figures/tt2278388.jpg"
-knitr::include_graphics(tdl)
-tdl <- "README_files/figures/tt0362270.jpg"
-knitr::include_graphics(tdl)
-tdl <- "README_files/figures/tt1748122.jpg"
-knitr::include_graphics(tdl)
+```{r echo = FALSE, eval = TRUE, out.width = "25%"}
+covers <- list.files("README_files/covers", full.names = TRUE)
+knitr::include_graphics(covers[1])
+knitr::include_graphics(covers[2])
+knitr::include_graphics(covers[3])
+knitr::include_graphics(covers[4])
 ```
 </p>
 
@@ -119,6 +115,7 @@ knitr::include_graphics(tdl)
 Results are stored as follow:
 
 ```{r echo = TRUE, eval = FALSE}
+README_files
 ├── covers
 │   ├── tt0362270.jpg
 │   ├── tt0838221.jpg
@@ -135,7 +132,16 @@ Results are stored as follow:
 
 <br />
 
+Let's import informations on these four movies:
 
-## Coming soon
+```{r echo = TRUE, eval = TRUE}
+## Read Movies Details ----
+movies <- read_details(path)
 
-- [ ] Implement `find_imdb_id()` function to search for terms
+movies[ , c("imdbid", "title", "year", "runtime", "imdbrating")]
+```
+
+<br />
+
+:construction_worker: **This package is still under development and some other
+goodies will be available soon!**
