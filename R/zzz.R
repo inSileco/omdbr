@@ -119,22 +119,21 @@ send_request <- function(request) {
   return(response)
 }
 
-parse_response <- function(response, api) {
+parse_response <- function(response, api, search = "title") {
 
   response <- httr::content(response, as = "text")
   content  <- jsonlite::fromJSON(response)
 
   if (api == "omdb") {
-
-    if (content$Response == "False") {
+    if (content$Response == "False" && search != "title") {
       stop("IMDb ID not found.")
     }
-
   }
 
   if (api == "yts") {
 
     if (content$data$movie_count == 0) {
+
       content <- list()
     }
   }

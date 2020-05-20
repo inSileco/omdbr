@@ -23,4 +23,5 @@ Imports:
     usethis,
     httr,
     jsonlite,
-    yaml
+    yaml,
+    stringdist
