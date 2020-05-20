@@ -43,17 +43,16 @@ An (free) API key is required to use the OMDb API. You can register on
 \url{http://www.omdbapi.com/}. When using this package for the first time,
 you'll be asked for setting your own API key (just follow instructions).
 
-The request is performed using the IMDb identifier of the movie. You can
-visit the IMDb website (\url{https://www.imdb.com}) and get this ID from the
-movie URL. It is always in the form: tt9999999 (only numbers are specific to
-the movie; the prefix 'tt' is a constant).
+The request is performed using the IMDb identifier of the movie. To find this
+ID you can use the function \code{find_imdb_id()}.
+
+If you can't retrieve the IMDb ID, visit the IMDb website
+(\url{https://www.imdb.com}) and get this ID from the movie URL. It is always
+in the form: tt9999999 (only numbers are specific to the movie; the prefix
+'tt' is a constant).
 
 For instance, in this URL: https://www.imdb.com/title/tt5699154/, the IMDb ID
 is 'tt5699154'.
-
-Another way to find the IMDb identifierof a movie is to use the function
-\code{find_imdb_id()}, but it could must faster to directly visit the IMDb
-website.
 
 For non-english movies, the english name might be different from the original
 title. For instance, the english title of the french movie "Le Sens de la
