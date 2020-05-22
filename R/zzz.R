@@ -311,9 +311,29 @@ get_torrent <- function(imdb_id, path = ".", open = FALSE) {
                     file.path(path, "torrents", paste0(imdb_id, ".torrent"))
                   )
                 )
+
+              } else {
+
+                usethis::ui_oops(
+                  paste(
+                    "Unable to find",
+                    usethis::ui_value("Transmission"),
+                    "application."
+                  )
+                )
               }
 
               invisible(file.remove(".tmp"))
+
+            } else {
+
+              usethis::ui_oops(
+                paste(
+                  "Feature",
+                  usethis::ui_value("open"),
+                  "is currently only available for macOS."
+                )
+              )
             }
           }
         }
