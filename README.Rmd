@@ -17,6 +17,7 @@ omdbr <img src="README_files/ticket.png" height="180" align="right"/>
 =======================
 
 <!-- badges: start -->
+[![R build status](https://github.com/inSileco/omdbr/workflows/R-CMD-check/badge.svg)](https://github.com/inSileco/omdbr/actions)
 <!-- badges: end -->
 
 The package `omdbr` is an R client to the [OMDb API](http://www.omdbapi.com).

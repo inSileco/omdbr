@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![R build
+status](https://github.com/inSileco/omdbr/workflows/R-CMD-check/badge.svg)](https://github.com/inSileco/omdbr/actions)
 <!-- badges: end -->
 
 The package `omdbr` is an R client to the [OMDb
