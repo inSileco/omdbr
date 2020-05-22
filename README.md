@@ -12,6 +12,8 @@ Stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/omdbr)](https://cran.r-project.org/package=omdbr)
 [![License: GPL
 v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Contributor
+Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 <!-- badges: end -->
 
 The package `omdbr` is an R client to the [OMDb
@@ -280,3 +282,10 @@ movies[ , c("imdbid", "title", "year", "runtime", "imdbrating")]
 
 :construction\_worker: **This package is still under development and
 some other goodies will be available soon\!**
+
+## Code of Conduct
+
+Please note that the `omdbr` project is released with a [Contributor
+Code of
+Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
