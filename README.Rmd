@@ -8,12 +8,13 @@ output: github_document
 knitr::opts_chunk$set(
   collapse  = TRUE,
   comment   = "##",
-  out.width = "100%"
+  out.width = "100%",
+  fig.path  = "man/figures/"
 )
 ```
 
 
-omdbr <img src="README_files/ticket.png" height="180" align="right"/>
+omdbr <img src="man/figures/logo.png" height="180" align="right"/>
 =======================
 
 <!-- badges: start -->
@@ -32,7 +33,6 @@ To install the `omdbr` package:
 
 ```{r echo = TRUE, eval = FALSE}
 remotes::install_github("inSileco/omdbr")
-library(omdbr)
 ```
 
 <br />
@@ -46,6 +46,10 @@ When using the package for the first time, you'll be guided to store your API ke
 <br />
 
 ## Usage
+
+```{r echo = TRUE, eval = TRUE}
+library(omdbr)
+```
 
 Let's get informations and cover about the
 [The Darjeeling Limited](https://imdb.com/title/tt0838221) movie directed by
@@ -103,7 +107,7 @@ for (imdb_id in imdb_ids) {
 
 <p align="center">
 ```{r echo = FALSE, eval = TRUE, out.width = "25%"}
-covers <- list.files("README_files/covers", full.names = TRUE)
+covers <- list.files("man/figures", full.names = TRUE)
 knitr::include_graphics(covers[1])
 knitr::include_graphics(covers[2])
 knitr::include_graphics(covers[3])
@@ -147,17 +151,3 @@ movies[ , c("imdbid", "title", "year", "runtime", "imdbrating")]
 
 :construction_worker: **This package is still under development and some other
 goodies will be available soon!**
-
-
-
-
-library(omdbr)
-
-x <- find_imdb_id("The Life of David Gale")
-
-imdb_id <- x$imdbid
-
-details <- get_details(imdb_id)
-get_cover(imdb_id)
-
-details <- read_details()

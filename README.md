@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# omdbr <img src="README_files/ticket.png" height="180" align="right"/>
+# omdbr <img src="man/figures/logo.png" height="180" align="right"/>
 
 <!-- badges: start -->
 
@@ -22,7 +22,6 @@ To install the `omdbr` package:
 
 ``` r
 remotes::install_github("inSileco/omdbr")
-library(omdbr)
 ```
 
 <br />
@@ -37,6 +36,10 @@ the first time, you’ll be guided to store your API key.
 <br />
 
 ## Usage
+
+``` r
+library(omdbr)
+```
 
 Let’s get informations and cover about the [The Darjeeling
 Limited](https://imdb.com/title/tt0838221) movie directed by [Wes
@@ -228,7 +231,7 @@ and [Moonrise Kingdom](https://www.imdb.com/title/tt1748122)?
 
 <p align="center">
 
-<img src="README_files/covers/tt0362270.jpg" width="25%" /><img src="README_files/covers/tt0838221.jpg" width="25%" /><img src="README_files/covers/tt1748122.jpg" width="25%" /><img src="README_files/covers/tt2278388.jpg" width="25%" />
+<img src="man/figures/logo.png" width="25%" /><img src="man/figures/tt0362270.jpg" width="25%" /><img src="man/figures/tt0838221.jpg" width="25%" /><img src="man/figures/tt1748122.jpg" width="25%" />
 
 </p>
 
@@ -272,13 +275,3 @@ movies[ , c("imdbid", "title", "year", "runtime", "imdbrating")]
 
 :construction\_worker: **This package is still under development and
 some other goodies will be available soon\!**
-
-library(omdbr)
-
-x \<- find\_imdb\_id(“The Life of David Gale”)
-
-imdb\_id \<- x$imdbid
-
-details \<- get\_details(imdb\_id) get\_cover(imdb\_id)
-
-details \<- read\_details()
