@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 ```
 
 
-omdbr <img src="man/figures/logo.png" height="180" align="right"/>
+omdbr <img src="man/figures/logo.png" height="170" align="right"/>
 =======================
 
 <!-- badges: start -->
@@ -26,137 +26,169 @@ omdbr <img src="man/figures/logo.png" height="180" align="right"/>
 <!-- badges: end -->
 
 The package `omdbr` is an R client to the [OMDb API](http://www.omdbapi.com).
-User can retrieve informations about a given movie (title, actors, year, genres, etc.)
-and download movie poster (if available).
-
-<br />
-
-## Installation
-
-To install the `omdbr` package:
-
-```{r echo = TRUE, eval = FALSE}
-remotes::install_github("inSileco/omdbr")
-```
-
-<br />
-
-## Prerequisites
-
-This package uses the [OMDb API](http://www.omdbapi.com) to access data on movies.
-You have to obtained an API key [here](http://www.omdbapi.com/apikey.aspx).
-When using the package for the first time, you'll be guided to store your API key.
-
-<br />
-
-## Usage
-
-```{r echo = TRUE, eval = TRUE}
-library(omdbr)
-```
-
-Let's get informations and cover about the
-[The Darjeeling Limited](https://imdb.com/title/tt0838221) movie directed by
-[Wes Anderson](https://en.wikipedia.org/wiki/Wes_Anderson). For the moment, the
-package requires the IMDb Identifier of the movie. You can find this ID by
-searching the movie on the [IMDb website](https://imdb.com) and extract it from
-the URL (format: tt9999999).
-
-The URL of _The Darjeeling Limited_ is:
-[https://imdb.com/title/tt0838221](https://imdb.com/title/tt0838221), and the
-IMDb ID is: `tt0838221`.
-
-```{r echo = TRUE, eval = TRUE}
-imdb_id <- "tt0838221"             ## imdb id of the movie
-path    <- "README_files/"         ## folder to store results
-```
-
-<br />
-
-Let's retrieve informations about the movie with the function `get_details()`:
-
-```{r echo = TRUE, eval = TRUE}
-## Get informations about the movie ----
-x <- get_details(imdb_id, path)
-```
-
-<br />
-
-Now, we can try to download the movie poster with the function `get_cover()`:
-
-```{r echo = TRUE, eval = TRUE}
-## Download movie poster ----
-get_cover(imdb_id, path)
-```
-
-
-<br />
-
-What about
-[The Grand Budapest Hotel](https://imdb.com/title/tt2278388),
-[The Life Aquatic with Steve Zissou](https://imdb.com/title/tt0362270), and
-[Moonrise Kingdom](https://www.imdb.com/title/tt1748122)?
-
-
-```{r echo = FALSE, eval = TRUE}
-imdb_ids <- c("tt2278388", "tt0362270", "tt1748122")
-for (imdb_id in imdb_ids) {
-  x <- get_details(imdb_id, path)
-  get_cover(imdb_id, path)
-  cat("\n")
-}
-```
+User can retrieve informations about movies (title, actors, year, genres, etc.)
+and download poster (if available) using the [YTS API](https://yts.mx/api/v2/).
 
 <br />
 
 <p align="center">
 ```{r echo = FALSE, eval = TRUE, out.width = "25%"}
-covers <- list.files("man/figures", full.names = TRUE)
-knitr::include_graphics(covers[2])
-knitr::include_graphics(covers[3])
-knitr::include_graphics(covers[4])
-knitr::include_graphics(covers[5])
+knitr::include_graphics("man/figures/tt0128445.jpg")
+knitr::include_graphics("man/figures/tt0265666.jpg")
+knitr::include_graphics("man/figures/tt0362270.jpg")
+knitr::include_graphics("man/figures/tt0838221.jpg")
+
+knitr::include_graphics("man/figures/tt0432283.jpg")
+knitr::include_graphics("man/figures/tt1748122.jpg")
+knitr::include_graphics("man/figures/tt2278388.jpg")
+knitr::include_graphics("man/figures/tt5104604.jpg")
 ```
 </p>
 
 <br />
 
+## Prerequisites
 
-Results are stored as follow:
+This package uses the [OMDb API](http://www.omdbapi.com) which requires an **API
+Key**. You can freely obtain your own [here](http://www.omdbapi.com/apikey.aspx).
+When you'll use the package `omdbr` for the first time, you'll be guided on
+how to store your personal API key.
+
+
+<br />
+
+## Installation
+
+To install the `omdbr` package, run the following command:
 
 ```{r echo = TRUE, eval = FALSE}
-README_files
-├── covers
-│   ├── tt0362270.jpg
-│   ├── tt0838221.jpg
-│   ├── tt1748122.jpg
-│   └── tt2278388.jpg
-└── data
-    ├── tt0362270.yml
-    ├── tt0838221.yml
-    ├── tt1748122.yml
-    └── tt2278388.yml
-
-2 directories, 8 files
+remotes::install_github("inSileco/omdbr")
 ```
 
-<br />
-
-Let's import informations on these four movies:
+and load the package:
 
 ```{r echo = TRUE, eval = TRUE}
-## Read Movies Details ----
-movies <- read_details(path)
-
-movies[ , c("imdbid", "title", "year", "runtime", "imdbrating")]
+library(omdbr)
 ```
 
 <br />
 
-:construction_worker: **This package is still under development and some other
-goodies will be available soon!**
+## Example
+
+> **Objective**: Getting informations and cover for
+[_The Darjeeling Limited_](https://imdb.com/title/tt0838221) movie directed by
+[Wes Anderson](https://en.wikipedia.org/wiki/Wes_Anderson).
+
+<br />
+
+**STEP 1**: Finding the IMDb identifier of the movie
+
+The package `omdbr` uses the IMDb ID the retrieves informations and cover movie.
+The function `find_imdb_id()` tries to find this ID.
+
+```{r echo = TRUE, eval = TRUE}
+x <- find_imdb_id("The Darjeeling Limited")
+```
+
+```{r echo = TRUE, eval = TRUE}
+str(x)
+```
+
+```{r echo = FALSE, eval = TRUE}
+x
+```
+
+:point_right: The argument `year` can be used to reduce results.
+
+<br />
+
+:bulb: You can also find this ID by searching the movie title on the
+[IMDb website](https://imdb.com) and extract it from the URL.
+The URL of _The Darjeeling Limited_ is:
+[https://imdb.com/title/tt0838221](https://imdb.com/title/tt0838221).
+
+<br />
+
+**STEP 2**: Getting movie informations
+
+```{r echo = FALSE, eval = TRUE}
+imdb_id <- "tt0838221"
+path    <- "README_files/"
+```
+
+To retrieve informations about the movie we will use the function `get_details()`:
+
+```{r echo = TRUE, eval = FALSE}
+x <- get_details(imdb_id = "tt0838221")
+```
+
+```{r echo = FALSE, eval = TRUE}
+x <- get_details(imdb_id = "tt0838221", path = path)
+```
+
+```{r echo = TRUE, eval = TRUE}
+class(x)
+```
+
+```{r echo = FALSE, eval = TRUE}
+x
+```
+
+:point_right: Results are stored in `data/tt0838221.yml` (path can be changed
+by using the argument `path`).
+
+<br />
+
+If you want to get access to these data you can use the function `read_details()`:
 
 
+```{r echo = TRUE, eval = TRUE}
+x <- read_details(imdb_id = "tt0838221")
+```
+
+```{r echo = FALSE, eval = TRUE}
+x
+```
+
+<br />
+
+**STEP 3**: Getting movie poster
+
+Now, we can try to download the movie poster with the function `get_cover()`:
+
+```{r echo = TRUE, eval = FALSE}
+get_cover(imdb_id = "tt0838221")
+```
+
+```{r echo = FALSE, eval = TRUE}
+get_cover(imdb_id = "tt0838221", path = path)
+```
+
+
+<br />
+
+<p align="center">
+```{r echo = FALSE, eval = TRUE, out.width = "50%"}
+covers <- list.files("man/figures", full.names = TRUE)
+knitr::include_graphics("man/figures/tt0838221.jpg")
+```
+</p>
+
+<br />
+
+:point_right: Results are stored as follow:
+
+```{r echo = TRUE, eval = FALSE}
+.
+├── covers
+│   └──tt0838221.jpg
+└── data
+    └──tt0838221.yml
+
+2 directories, 2 files
+```
+
+<br />
 
 ## Code of Conduct
 
