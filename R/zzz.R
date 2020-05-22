@@ -192,7 +192,7 @@ rm_brackets <- function(x) {
 }
 
 
-get_torrent <- function(imdb_id, path = ".") {
+get_torrent <- function(imdb_id, path = ".", open = FALSE) {
 
   if (missing(imdb_id)) {
     stop("Argument 'imdb_id' is required.")
@@ -291,6 +291,31 @@ get_torrent <- function(imdb_id, path = ".") {
               )
             )
           )
+
+          if (open) {
+
+            if (Sys.info()["sysname"] == "Darwin") {
+
+              is_client <- system(
+                paste(
+                  "mdfind \"kMDItemKind == 'Application'\"",
+                  "| grep Transmission.app > .tmp"
+                )
+              )
+
+              if (length(readLines(".tmp"))) {
+
+                system(
+                  paste(
+                    "open -a Transmission",
+                    file.path(path, "torrents", paste0(imdb_id, ".torrent"))
+                  )
+                )
+              }
+
+              invisible(file.remove(".tmp"))
+            }
+          }
         }
 
       } else {
