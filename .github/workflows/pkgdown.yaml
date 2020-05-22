@@ -7,8 +7,6 @@ name: pkgdown
 jobs:
   pkgdown:
     runs-on: macOS-latest
-    env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v2
       - uses: r-lib/actions/setup-r@master
@@ -40,5 +38,5 @@ jobs:
 
       - name: Deploy package
         run: |
-          { url <- 'https://x-access-token:${{GITHUB_PAT}}@github.com/${{github.repository}}.git'; pkgdown:::deploy_local(new_process = FALSE, remote_url = url) }
+          { url <- 'https://x-access-token:${{secrets.ACTIONS_DEPLOY_KEY}}@github.com/${{github.repository}}.git'; pkgdown:::deploy_local(new_process = FALSE, remote_url = url) }
         shell: Rscript {0}
