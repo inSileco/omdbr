@@ -7,9 +7,14 @@ name: pkgdown
 jobs:
   pkgdown:
     runs-on: macOS-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
     steps:
       - uses: actions/checkout@v2
+
       - uses: r-lib/actions/setup-r@master
+
       - uses: r-lib/actions/setup-pandoc@master
 
       - name: Query dependencies
@@ -37,6 +42,5 @@ jobs:
         run: R CMD INSTALL .
 
       - name: Deploy package
-        run: |
-          { url <- 'https://x-access-token:${{secrets.ACTIONS_DEPLOY_KEY}}@github.com/${{github.repository}}.git'; pkgdown:::deploy_local(new_process = FALSE, remote_url = url) }
+        run: pkgdown::deploy_to_branch(new_process = FALSE)
         shell: Rscript {0}
