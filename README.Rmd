@@ -108,10 +108,10 @@ for (imdb_id in imdb_ids) {
 <p align="center">
 ```{r echo = FALSE, eval = TRUE, out.width = "25%"}
 covers <- list.files("man/figures", full.names = TRUE)
-knitr::include_graphics(covers[1])
 knitr::include_graphics(covers[2])
 knitr::include_graphics(covers[3])
 knitr::include_graphics(covers[4])
+knitr::include_graphics(covers[5])
 ```
 </p>
 
