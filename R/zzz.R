@@ -200,3 +200,40 @@ yml_to_list <- function(filename) {
 
   as.data.frame(data, stringsAsFactors = FALSE)
 }
+
+
+find_pattern <- function(data, pattern, field) {
+
+  search <- pattern
+
+  search_in <- unlist(
+    lapply(
+      data[ , field],
+      function(x) paste0(x, collapse = " ")
+    )
+  )
+
+  search_in <- gsub("[[:punct:]]", "", tolower(search_in))
+  pattern   <- gsub("[[:punct:]]", "", tolower(pattern))
+
+  pattern <- paste0(pattern, collapse = "|")
+
+  selected <- data[grep(pattern, search_in), ]
+
+  if (!nrow(selected)) {
+
+    selected <- data.frame()
+
+    usethis::ui_oops(
+      paste(
+        "No match for",
+        usethis::ui_value(search),
+        "in",
+        usethis::ui_field(field)
+      )
+    )
+
+  }
+
+  selected
+}
