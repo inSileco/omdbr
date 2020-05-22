@@ -13,7 +13,8 @@ knitr::opts_chunk$set(
 ```
 
 
-# omdbr
+omdbr <img src="README_files/ticket.png" height="180" align="right"/>
+=======================
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -145,3 +146,17 @@ movies[ , c("imdbid", "title", "year", "runtime", "imdbrating")]
 
 :construction_worker: **This package is still under development and some other
 goodies will be available soon!**
+
+
+
+
+library(omdbr)
+
+x <- find_imdb_id("The Life of David Gale")
+
+imdb_id <- x$imdbid
+
+details <- get_details(imdb_id)
+get_cover(imdb_id)
+
+details <- read_details()

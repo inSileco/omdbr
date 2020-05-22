@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# omdbr
+# omdbr <img src="README_files/ticket.png" height="180" align="right"/>
 
 <!-- badges: start -->
 
@@ -270,3 +270,13 @@ movies[ , c("imdbid", "title", "year", "runtime", "imdbrating")]
 
 :construction\_worker: **This package is still under development and
 some other goodies will be available soon\!**
+
+library(omdbr)
+
+x \<- find\_imdb\_id(“The Life of David Gale”)
+
+imdb\_id \<- x$imdbid
+
+details \<- get\_details(imdb\_id) get\_cover(imdb\_id)
+
+details \<- read\_details()
