@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# omdbr <img src="man/figures/logo0.png" height="170" align="right"/>
+# omdbr <img src="man/figures/logo1.png" height="170" align="right"/>
 
 <!-- badges: start -->
 
