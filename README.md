@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# omdbr <img src="man/figures/logo.png" height="170" align="right"/>
+# omdbr <img src="man/figures/logo0.png" height="170" align="right"/>
 
 <!-- badges: start -->
 
@@ -25,7 +25,7 @@ available) using the [YTS API](https://yts.mx/api/v2/).
 
 <p align="center">
 
-<img src="man/figures/tt0128445.jpg" width="25%" /><img src="man/figures/tt0265666.jpg" width="25%" /><img src="man/figures/tt0362270.jpg" width="25%" /><img src="man/figures/tt0838221.jpg" width="25%" /><img src="man/figures/tt0432283.jpg" width="25%" /><img src="man/figures/tt1748122.jpg" width="25%" /><img src="man/figures/tt2278388.jpg" width="25%" /><img src="man/figures/tt5104604.jpg" width="25%" />
+<img src="man/figures/tt0128445.jpg" width="12.5%" /><img src="man/figures/tt0265666.jpg" width="12.5%" /><img src="man/figures/tt0362270.jpg" width="12.5%" /><img src="man/figures/tt0838221.jpg" width="12.5%" /><img src="man/figures/tt0432283.jpg" width="12.5%" /><img src="man/figures/tt1748122.jpg" width="12.5%" /><img src="man/figures/tt2278388.jpg" width="12.5%" /><img src="man/figures/tt5104604.jpg" width="12.5%" />
 
 </p>
 

@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 ```
 
 
-omdbr <img src="man/figures/logo.png" height="170" align="right"/>
+omdbr <img src="man/figures/logo0.png" height="170" align="right"/>
 =======================
 
 <!-- badges: start -->
@@ -32,7 +32,7 @@ and download poster (if available) using the [YTS API](https://yts.mx/api/v2/).
 <br />
 
 <p align="center">
-```{r echo = FALSE, eval = TRUE, out.width = "25%"}
+```{r echo = FALSE, eval = TRUE, out.width = "12.5%"}
 knitr::include_graphics("man/figures/tt0128445.jpg")
 knitr::include_graphics("man/figures/tt0265666.jpg")
 knitr::include_graphics("man/figures/tt0362270.jpg")
