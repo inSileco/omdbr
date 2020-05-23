@@ -31,22 +31,6 @@ and download poster (if available) using the [YTS API](https://yts.mx/api/v2/).
 
 <br />
 
-<p align="center">
-```{r echo = FALSE, eval = TRUE, out.width = "12.5%"}
-knitr::include_graphics("man/figures/tt0128445.jpg")
-knitr::include_graphics("man/figures/tt0265666.jpg")
-knitr::include_graphics("man/figures/tt0362270.jpg")
-knitr::include_graphics("man/figures/tt0838221.jpg")
-
-knitr::include_graphics("man/figures/tt0432283.jpg")
-knitr::include_graphics("man/figures/tt1748122.jpg")
-knitr::include_graphics("man/figures/tt2278388.jpg")
-knitr::include_graphics("man/figures/tt5104604.jpg")
-```
-</p>
-
-<br />
-
 ## Prerequisites
 
 This package uses the [OMDb API](http://www.omdbapi.com) which requires an **API
@@ -70,6 +54,22 @@ and load the package:
 ```{r echo = TRUE, eval = TRUE}
 library(omdbr)
 ```
+
+<br />
+
+<p align="center">
+```{r echo = FALSE, eval = TRUE, out.width = "12.5%"}
+knitr::include_graphics("man/figures/tt0128445.jpg")
+knitr::include_graphics("man/figures/tt0265666.jpg")
+knitr::include_graphics("man/figures/tt0362270.jpg")
+knitr::include_graphics("man/figures/tt0838221.jpg")
+
+knitr::include_graphics("man/figures/tt0432283.jpg")
+knitr::include_graphics("man/figures/tt1748122.jpg")
+knitr::include_graphics("man/figures/tt2278388.jpg")
+knitr::include_graphics("man/figures/tt5104604.jpg")
+```
+</p>
 
 <br />
 
@@ -98,7 +98,7 @@ str(x)
 x
 ```
 
-:point_right: The argument `year` can be used to reduce results.
+:bulb: The argument `year` can be used to reduce results.
 
 <br />
 
@@ -134,7 +134,7 @@ class(x)
 x
 ```
 
-:point_right: Results are stored in `data/tt0838221.yml` (path can be changed
+:bulb: Results are stored in `data/tt0838221.yml` (path can be changed
 by using the argument `path`).
 
 <br />
@@ -176,7 +176,7 @@ knitr::include_graphics("man/figures/tt0838221.jpg")
 
 <br />
 
-:point_right: Results are stored as follow:
+:bulb: Results are stored as follow:
 
 ```{r echo = TRUE, eval = FALSE}
 .

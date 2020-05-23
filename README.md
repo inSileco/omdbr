@@ -23,14 +23,6 @@ available) using the [YTS API](https://yts.mx/api/v2/).
 
 <br />
 
-<p align="center">
-
-<img src="man/figures/tt0128445.jpg" width="12.5%" /><img src="man/figures/tt0265666.jpg" width="12.5%" /><img src="man/figures/tt0362270.jpg" width="12.5%" /><img src="man/figures/tt0838221.jpg" width="12.5%" /><img src="man/figures/tt0432283.jpg" width="12.5%" /><img src="man/figures/tt1748122.jpg" width="12.5%" /><img src="man/figures/tt2278388.jpg" width="12.5%" /><img src="man/figures/tt5104604.jpg" width="12.5%" />
-
-</p>
-
-<br />
-
 ## Prerequisites
 
 This package uses the [OMDb API](http://www.omdbapi.com) which requires
@@ -54,6 +46,14 @@ and load the package:
 ``` r
 library(omdbr)
 ```
+
+<br />
+
+<p align="center">
+
+<img src="man/figures/tt0128445.jpg" width="12.5%" /><img src="man/figures/tt0265666.jpg" width="12.5%" /><img src="man/figures/tt0362270.jpg" width="12.5%" /><img src="man/figures/tt0838221.jpg" width="12.5%" /><img src="man/figures/tt0432283.jpg" width="12.5%" /><img src="man/figures/tt1748122.jpg" width="12.5%" /><img src="man/figures/tt2278388.jpg" width="12.5%" /><img src="man/figures/tt5104604.jpg" width="12.5%" />
+
+</p>
 
 <br />
 
@@ -90,7 +90,7 @@ str(x)
     ##                    title year    imdbid
     ## 1 The Darjeeling Limited 2007 tt0838221
 
-:point\_right: The argument `year` can be used to reduce results.
+:bulb: The argument `year` can be used to reduce results.
 
 <br />
 
@@ -165,8 +165,8 @@ class(x)
     ##                          slug
     ## 1 the-darjeeling-limited-2007
 
-:point\_right: Results are stored in `data/tt0838221.yml` (path can be
-changed by using the argument `path`).
+:bulb: Results are stored in `data/tt0838221.yml` (path can be changed
+by using the argument `path`).
 
 <br />
 
@@ -250,7 +250,7 @@ get_cover(imdb_id = "tt0838221")
 
 <br />
 
-:point\_right: Results are stored as follow:
+:bulb: Results are stored as follow:
 
 ``` r
 .
