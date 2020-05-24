@@ -1,7 +1,7 @@
 #' Retrieve Metadata of a Movie
 #'
 #' This function retrieves movie metadata (title, actors, year, genres, etc.)
-#' using the OMDb API \url{http://www.omdbapi.com/}. Results are exported in a
+#' using the OMDb API <http://www.omdbapi.com/>. Results are exported in a
 #' YAML file and returned as a data frame. See details below for further
 #' informations.
 #'
@@ -27,22 +27,22 @@
 #'
 #' @details
 #' An (free) API key is required to use the OMDb API. You can register on
-#' \url{http://www.omdbapi.com/}. When using this package for the first time,
+#' <http://www.omdbapi.com/>. When using this package for the first time,
 #' you'll be asked for setting your own API key (just follow instructions).
 #'
 #' The request is performed using the IMDb identifier of the movie. To find this
 #' ID you can use the function `find_imdb_id()`.
 #'
 #' If you can't retrieve the IMDb ID, visit the IMDb website
-#' (\url{https://www.imdb.com}) and get this ID from the movie URL. It is always
+#' (<https://www.imdb.com>) and get this ID from the movie URL. It is always
 #' in the form: tt9999999 (only numbers are specific to the movie; the prefix
 #' 'tt' is a constant).
 #'
-#' For instance, in this URL: https://www.imdb.com/title/tt5699154/, the IMDb ID
+#' For instance, in this URL: <https://www.imdb.com/title/tt5699154/>, the IMDb ID
 #' is 'tt5699154'.
 #'
-#' For non-english movies, the english name might be different from the original
-#' title. For instance, the english title of the french movie "Le Sens de la
+#' For non-English movies, the English name might be different from the original
+#' title. For instance, the English title of the french movie "Le Sens de la
 #' fête" (2017) is "C'est la vie!" (IMDb ID = tt5699154).
 #'
 #' Only movies are currently implemented.
@@ -59,7 +59,7 @@
 #' }
 
 
-get_details <- function(imdb_id, path = ".", print = TRUE) {
+get_details <- function(imdb_id, path = "./details", print = TRUE) {
 
   if (missing(imdb_id)) {
     stop("Argument 'imdb_id' is required.")
@@ -69,13 +69,10 @@ get_details <- function(imdb_id, path = ".", print = TRUE) {
     stop("Argument 'imdb_id' cannot be NULL.")
   }
 
-  if (length(imdb_id) != 1) {
+  if (length(imdb_id) != 1 | !is.character(imdb_id)) {
     stop("Argument 'imdb_id' must be a character of length 1.")
   }
 
-  if (!is.character(imdb_id)) {
-    stop("Argument 'imdb_id' must be a character of length 1.")
-  }
 
   if (!sum(grep("^tt[0-9]{7}$", imdb_id))) {
     stop("Invalid 'imdb_id' format.")
@@ -85,11 +82,7 @@ get_details <- function(imdb_id, path = ".", print = TRUE) {
     stop("Argument 'print' must be a boolean.")
   }
 
-  if (!dir.exists(path)) {
-    stop(paste("Directory <", path, "> does not exist."))
-  }
-
-  dir.create(file.path(path, "data"), showWarnings = FALSE)
+  if (!dir.exists(path)) dir.create(path, showWarnings = FALSE)
 
   request  <- omdb_full_url(
     "?apikey=", omdb_get_token(),
@@ -157,7 +150,7 @@ get_details <- function(imdb_id, path = ".", print = TRUE) {
   to_store <- gsub("imdbid:", "- imdbid:", to_store)
   to_store <- gsub("\\\n  $", "\n", to_store)
 
-  cat(to_store, file = file.path(path, "data", paste0(imdb_id, ".yml")))
+  cat(to_store, file = file.path(path, paste0(imdb_id, ".yml")))
 
 
   ## Convert to data frame ----
@@ -170,9 +163,10 @@ get_details <- function(imdb_id, path = ".", print = TRUE) {
 
   if (print) {
 
-    cli::cat_rule()
-    cat(paste0("\n", to_store, "\n"))
-    cli::cat_rule()
+    cat_rule()
+    cat_line()
+    cat_line(to_store)
+    cat_rule()
   }
 
   return(content)

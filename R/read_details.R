@@ -91,9 +91,10 @@ read_details <- function(path = ".", imdb_id = NULL, print = TRUE) {
     to_print <- yaml::as.yaml(to_print)
     to_print <- gsub("\\\n  -", "\n    -", to_print)
 
-    cli::cat_rule()
-    cat(paste0("\n", to_print, "\n"))
-    cli::cat_rule()
+    cat_rule()
+    cat_line()
+    cat_line(to_print)
+    cat_rule()
   }
 
   details <- lapply(filenames, yml_to_list)

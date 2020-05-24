@@ -15,7 +15,7 @@ find_imdb_id(search, year = NULL, n_max = 10, sleep = 0.1, verbose = TRUE)
 
 \item{sleep}{Time interval between two API requests.}
 
-\item{verbose}{A boolean. If TRUE, prints some informations.}
+\item{verbose}{A boolean. If \code{TRUE}, prints some informations.}
 }
 \value{
 A data frame with:
@@ -40,11 +40,11 @@ website (\url{https://www.imdb.com}) and get this ID from the movie URL. It
 is always in the form: tt9999999 (only numbers are specific to the movie; the
 prefix 'tt' is a constant).
 
-For instance, in this URL: https://www.imdb.com/title/tt5699154/, the IMDb ID
+For instance, in this URL: \url{https://www.imdb.com/title/tt5699154/}, the IMDb ID
 is 'tt5699154'.
 
-For non-english movies, the english name might be different from the original
-title. For example, the english title of the french movie "Le Sens de la
+For non-English movies, the English name might be different from the original
+title. For example, the English title of the french movie "Le Sens de la
 fête" (2017) is "C'est la vie!" (IMDb ID = tt5699154).
 
 Only movies are currently implemented.
