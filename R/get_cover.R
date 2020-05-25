@@ -1,14 +1,11 @@
 #' Retrieve Cover/Poster of a Movie
 #'
 #' This function retrieves movie cover using the YTS API
-#' \url{https://yts.mx/api}. No API key is required but not all movies listed in
-#' the IMDb/OMDb databases are available on YTS \url{https://yts.mx}.
+#' <https://yts.mx/api>. No API key is required but not all movies listed in
+#' the IMDb/OMDb databases are available on YTS <https://yts.mx>.
 #'
 #' @param imdb_id The IMDb ID of the movie.
 #' @param path The folder to save cover.
-#'
-#' @importFrom utils download.file
-#' @importFrom usethis ui_done ui_oops ui_value
 #'
 #' @export
 #'
@@ -18,7 +15,7 @@
 #' }
 
 
-get_cover <- function(imdb_id, path = ".") {
+get_cover <- function(imdb_id, path = "./covers") {
 
   if (missing(imdb_id)) {
     stop("Argument 'imdb_id' is required.")
@@ -28,11 +25,8 @@ get_cover <- function(imdb_id, path = ".") {
     stop("Argument 'imdb_id' cannot be NULL.")
   }
 
-  if (length(imdb_id) != 1) {
+  if (length(imdb_id) != 1 | !is.character(imdb_id)) {
     stop("Argument 'imdb_id' must be a character of length 1.")
-  }
-
-  if (!is.character(imdb_id)) {
     stop("Argument 'imdb_id' must be a character of length 1.")
   }
 
@@ -40,11 +34,8 @@ get_cover <- function(imdb_id, path = ".") {
     stop("Invalid 'imdb_id' format.")
   }
 
-  if (!dir.exists(path)) {
-    stop(paste("Directory <", path, "> does not exist."))
-  }
+  if (!dir.exists(path)) dir.create(path, showWarnings = FALSE)
 
-  dir.create(file.path(path, "covers"), showWarnings = FALSE)
 
   request  <- yts_full_url(
     "list_movies.json",
@@ -73,7 +64,7 @@ get_cover <- function(imdb_id, path = ".") {
       attempt <- tryCatch({
         utils::download.file(
           url      = image_url,
-          destfile = file.path(path, "covers", paste0(imdb_id, ".jpg")),
+          destfile = file.path(path, paste0(imdb_id, ".jpg")),
           quiet    = TRUE
         )},
         error = function(e){}

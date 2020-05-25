@@ -11,6 +11,14 @@ This package retrieves movies metadata (title, actors, year,
     required). Cover can also be downloaded from the YTS API
     <https://yts.mx/api> (no API key required).
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/inSileco/omdbr}
+  \item Report bugs at \url{https://github.com/inSileco/omdbr/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Nicolas Casajus \email{nicolas.casajus@gmail.com}
 

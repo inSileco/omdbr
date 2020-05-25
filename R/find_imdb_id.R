@@ -1,7 +1,7 @@
 #' Retrieve the IMDb Identifier of a Movie
 #'
 #' This function tries to retrieve the IMDb identifier of a movie based on a its
-#' title and using the OMDb API \url{http://www.omdbapi.com/}. User can also
+#' title and using the OMDb API <http://www.omdbapi.com/>. User can also
 #' specify the release year of the movie. See details below for further
 #' informations.
 #'
@@ -9,7 +9,7 @@
 #' @param year (optional) The release year of the movie.
 #' @param n_max Number of matches to returned (default is 10).
 #' @param sleep Time interval between two API requests.
-#' @param verbose A boolean. If TRUE, prints some informations.
+#' @param verbose A boolean. If `TRUE`, prints some informations.
 #'
 #' @return A data frame with:
 #'   - title: the movie title
@@ -21,15 +21,15 @@
 #' spelling. Results are sorted by their similarity with the search terms.
 #'
 #' If you don't find the movie you are looking for, you can visit the IMDb
-#' website (\url{https://www.imdb.com}) and get this ID from the movie URL. It
+#' website (<https://www.imdb.com>) and get this ID from the movie URL. It
 #' is always in the form: tt9999999 (only numbers are specific to the movie; the
 #' prefix 'tt' is a constant).
 #'
-#' For instance, in this URL: https://www.imdb.com/title/tt5699154/, the IMDb ID
+#' For instance, in this URL: <https://www.imdb.com/title/tt5699154/>, the IMDb ID
 #' is 'tt5699154'.
 #'
-#' For non-english movies, the english name might be different from the original
-#' title. For example, the english title of the french movie "Le Sens de la
+#' For non-English movies, the English name might be different from the original
+#' title. For example, the English title of the french movie "Le Sens de la
 #' fête" (2017) is "C'est la vie!" (IMDb ID = tt5699154).
 #'
 #' Only movies are currently implemented.
@@ -117,7 +117,7 @@ find_imdb_id <- function(search, year = NULL, n_max = 10, sleep = 0.1,
 
 
   if (verbose) {
-    cli::cat_rule()
+    cat_rule()
     usethis::ui_info(
       paste(
         "Searching", usethis::ui_value(search), "in movies title..."
@@ -259,7 +259,7 @@ find_imdb_id <- function(search, year = NULL, n_max = 10, sleep = 0.1,
   }
 
   if (verbose) {
-    cli::cat_rule()
+    cat_rule()
   }
 
   infos

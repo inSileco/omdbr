@@ -1,6 +1,7 @@
-#' @importFrom usethis ui_info ui_done ui_value ui_code
+#' @importFrom cli cat_line cat_rule
+#' @importFrom usethis ui_info ui_done ui_value ui_code ui_oops
 #' @importFrom httr GET status_code content stop_for_status
-#' @importFrom utils URLencode
+#' @importFrom utils URLencode download.file sessionInfo
 #' @importFrom jsonlite fromJSON
 #' @importFrom yaml read_yaml
 
@@ -72,7 +73,7 @@ omdb_set_token <- function() {
 
     omdb_check_token(token)
 
-    cat("\n")
+    cat_line()
     usethis::ui_done(
       paste(
         usethis::ui_value("OMDb_KEY"),
@@ -80,7 +81,7 @@ omdb_set_token <- function() {
       )
     )
 
-    cat("\n")
+    cat_line()
     usethis::ui_info(
       paste(
         "If you want to permanently store this API token, run:",
@@ -250,7 +251,7 @@ get_torrent <- function(imdb_id, path = ".", open = FALSE) {
 
       number <- readline("\n  Which one would you like? ")
 
-      if (number %in% (1:nrow(torrents))) {
+      if (number %in% seq_len(nrow(torrents))) {
 
         torrent <- torrents[number, ]
         usethis::ui_info(
@@ -318,12 +319,42 @@ get_torrent <- function(imdb_id, path = ".", open = FALSE) {
                   paste(
                     "Unable to find",
                     usethis::ui_value("Transmission"),
-                    "application."
+                    "application (see https://transmissionbt.com/)."
                   )
                 )
               }
 
               invisible(file.remove(".tmp"))
+
+            } else if (grepl("debian|ubuntu", tolower(sessionInfo()$running))) {
+
+              tmp <- tempfile()
+              is_client <- system(
+                  paste("which transmission-gtk >", tmp)
+                )
+
+              if (length(readLines(tmp))) {
+
+                system(
+                  paste(
+                    "transmission-gtk",
+                    file.path(path, "torrents", paste0(imdb_id, ".torrent"))
+                  )
+                )
+
+              } else {
+
+                usethis::ui_oops(
+                  paste(
+                    "Unable to find",
+                    usethis::ui_value("Transmission"),
+                    "application. Try `apt-get install transmission`.\n",
+                    "See https://transmissionbt.com/ for further details."
+                  )
+                )
+              }
+
+              invisible(unlink(tmp))
 
             } else {
 
@@ -331,7 +362,7 @@ get_torrent <- function(imdb_id, path = ".", open = FALSE) {
                 paste(
                   "Feature",
                   usethis::ui_value("open"),
-                  "is currently only available for macOS."
+                  "is currently only available for macOS and Debian-based Linux distribution."
                 )
               )
             }

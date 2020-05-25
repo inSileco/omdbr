@@ -4,7 +4,7 @@
 \alias{get_details}
 \title{Retrieve Metadata of a Movie}
 \usage{
-get_details(imdb_id, path = ".", print = TRUE)
+get_details(imdb_id, path = "./details", print = TRUE)
 }
 \arguments{
 \item{imdb_id}{The IMDb ID of the movie.}
@@ -51,11 +51,11 @@ If you can't retrieve the IMDb ID, visit the IMDb website
 in the form: tt9999999 (only numbers are specific to the movie; the prefix
 'tt' is a constant).
 
-For instance, in this URL: https://www.imdb.com/title/tt5699154/, the IMDb ID
+For instance, in this URL: \url{https://www.imdb.com/title/tt5699154/}, the IMDb ID
 is 'tt5699154'.
 
-For non-english movies, the english name might be different from the original
-title. For instance, the english title of the french movie "Le Sens de la
+For non-English movies, the English name might be different from the original
+title. For instance, the English title of the french movie "Le Sens de la
 fête" (2017) is "C'est la vie!" (IMDb ID = tt5699154).
 
 Only movies are currently implemented.

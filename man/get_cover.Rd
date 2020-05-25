@@ -4,7 +4,7 @@
 \alias{get_cover}
 \title{Retrieve Cover/Poster of a Movie}
 \usage{
-get_cover(imdb_id, path = ".")
+get_cover(imdb_id, path = "./covers")
 }
 \arguments{
 \item{imdb_id}{The IMDb ID of the movie.}
