@@ -1,13 +1,20 @@
 Package: omdbr
 Title: Retrieve Movies Metadata from OMDb Database
 Version: 0.0.0.9000
-Authors@R:
+Authors@R: 
+    c(
     person(
         given  = "Nicolas",
         family = "Casajus",
         role   = c("aut", "cre"),
         email  = "nicolas.casajus@gmail.com"
-    )
+    ),
+    person(
+        given  = "Kevin",
+        family = "Cazelles",
+        role   = "aut",
+        email  = "kevin.cazelles@gmail.com"
+    ))
 Description: This package retrieves movies metadata (title, actors, year,
     genres, etc.) using the OMDb API <http://www.omdbapi.com/> (an API key is
     required). Cover can also be downloaded from the YTS API
@@ -18,12 +25,12 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.0
-Imports:
+RoxygenNote: 7.1.1
+Imports: 
     cli,
-    utils,
-    usethis,
     httr,
     jsonlite,
-    yaml,
-    stringdist
+    stringdist,
+    usethis,
+    utils,
+    yaml

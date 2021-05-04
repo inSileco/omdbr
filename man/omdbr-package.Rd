@@ -22,5 +22,10 @@ Useful links:
 \author{
 \strong{Maintainer}: Nicolas Casajus \email{nicolas.casajus@gmail.com}
 
+Authors:
+\itemize{
+  \item Kevin Cazelles \email{kevin.cazelles@gmail.com}
+}
+
 }
 \keyword{internal}

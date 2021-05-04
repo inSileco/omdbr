@@ -24,9 +24,6 @@
 #'   - imdbrating: the IMDb rating (in date of the request)
 #'   - slug: a unique identifier (titre + year)
 #'
-#' @importFrom cli cat_rule
-#' @importFrom yaml read_yaml as.yaml
-#'
 #' @export
 #'
 #' @examples
@@ -64,7 +61,7 @@ read_details <- function(path = ".", imdb_id = NULL, print = TRUE) {
       stop("Argument 'imdb_id' must be a character.")
     }
 
-    if (length(grep("^tt[0-9]{7}$", imdb_id)) != length(imdb_id)) {
+    if (length(grep("^tt[0-9]{7,}$", imdb_id)) != length(imdb_id)) {
       stop("Invalid 'imdb_id' format.")
     }
 
@@ -91,10 +88,10 @@ read_details <- function(path = ".", imdb_id = NULL, print = TRUE) {
     to_print <- yaml::as.yaml(to_print)
     to_print <- gsub("\\\n  -", "\n    -", to_print)
 
-    cat_rule()
-    cat_line()
-    cat_line(to_print)
-    cat_rule()
+    cli::cat_rule()
+    cli::cat_line()
+    cli::cat_line(to_print)
+    cli::cat_rule()
   }
 
   details <- lapply(filenames, yml_to_list)

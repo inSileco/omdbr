@@ -34,10 +34,6 @@
 #'
 #' Only movies are currently implemented.
 #'
-#' @importFrom stringdist stringdistmatrix
-#' @importFrom cli cat_rule
-#' @importFrom usethis ui_done ui_oops ui_value ui_line
-#'
 #' @export
 #'
 #' @examples
@@ -117,7 +113,7 @@ find_imdb_id <- function(search, year = NULL, n_max = 10, sleep = 0.1,
 
 
   if (verbose) {
-    cat_rule()
+    cli::cat_rule()
     usethis::ui_info(
       paste(
         "Searching", usethis::ui_value(search), "in movies title..."
@@ -259,7 +255,7 @@ find_imdb_id <- function(search, year = NULL, n_max = 10, sleep = 0.1,
   }
 
   if (verbose) {
-    cat_rule()
+    cli::cat_rule()
   }
 
   infos

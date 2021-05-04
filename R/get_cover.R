@@ -30,7 +30,7 @@ get_cover <- function(imdb_id, path = "./covers") {
     stop("Argument 'imdb_id' must be a character of length 1.")
   }
 
-  if (!sum(grep("^tt[0-9]{7}$", imdb_id))) {
+  if (!sum(grep("^tt[0-9]{7,}$", imdb_id))) {
     stop("Invalid 'imdb_id' format.")
   }
 

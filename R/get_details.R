@@ -47,10 +47,6 @@
 #'
 #' Only movies are currently implemented.
 #'
-#' @importFrom cli cat_rule
-#' @importFrom yaml yaml.load as.yaml
-#' @importFrom jsonlite toJSON fromJSON
-#'
 #' @export
 #'
 #' @examples
@@ -74,7 +70,7 @@ get_details <- function(imdb_id, path = "./details", print = TRUE) {
   }
 
 
-  if (!sum(grep("^tt[0-9]{7}$", imdb_id))) {
+  if (!sum(grep("^tt[0-9]{7,}$", imdb_id))) {
     stop("Invalid 'imdb_id' format.")
   }
 
@@ -163,10 +159,10 @@ get_details <- function(imdb_id, path = "./details", print = TRUE) {
 
   if (print) {
 
-    cat_rule()
-    cat_line()
-    cat_line(to_store)
-    cat_rule()
+    cli::cat_rule()
+    cli::cat_line()
+    cli::cat_line(to_store)
+    cli::cat_rule()
   }
 
   return(content)

@@ -1,11 +1,3 @@
-#' @importFrom cli cat_line cat_rule
-#' @importFrom usethis ui_info ui_done ui_value ui_code ui_oops
-#' @importFrom httr GET status_code content stop_for_status
-#' @importFrom utils URLencode download.file sessionInfo
-#' @importFrom jsonlite fromJSON
-#' @importFrom yaml read_yaml
-
-
 ## URLs Handlers Functions ----
 
 yts_base_url <- function() {
@@ -73,7 +65,7 @@ omdb_set_token <- function() {
 
     omdb_check_token(token)
 
-    cat_line()
+    cli::cat_line()
     usethis::ui_done(
       paste(
         usethis::ui_value("OMDb_KEY"),
@@ -81,7 +73,7 @@ omdb_set_token <- function() {
       )
     )
 
-    cat_line()
+    cli::cat_line()
     usethis::ui_info(
       paste(
         "If you want to permanently store this API token, run:",
@@ -211,7 +203,7 @@ get_torrent <- function(imdb_id, path = ".", open = FALSE) {
     stop("Argument 'imdb_id' must be a character of length 1.")
   }
 
-  if (!sum(grep("^tt[0-9]{7}$", imdb_id))) {
+  if (!sum(grep("^tt[0-9]{7,}$", imdb_id))) {
     stop("Invalid 'imdb_id' format.")
   }
 
@@ -326,7 +318,7 @@ get_torrent <- function(imdb_id, path = ".", open = FALSE) {
 
               invisible(file.remove(".tmp"))
 
-            } else if (grepl("debian|ubuntu", tolower(sessionInfo()$running))) {
+            } else if (grepl("debian|ubuntu", tolower(utils::sessionInfo()$running))) {
 
               tmp <- tempfile()
               is_client <- system(
