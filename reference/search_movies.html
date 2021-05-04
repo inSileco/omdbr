@@ -46,6 +46,8 @@ can search in title, year, etc." />
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -57,9 +59,18 @@ can search in title, year, etc." />
 
 
 
+<!-- dependencies from examples -->
+
+
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -80,19 +91,13 @@ can search in title, year, etc." />
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/inSileco/omdbr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -119,17 +124,17 @@ can search in title, year, etc." />
 can search in title, year, etc.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>search_movies</span>(
-  <span class='no'>title</span>,
-  <span class='no'>year</span>,
-  <span class='no'>genre</span>,
-  <span class='no'>director</span>,
-  <span class='no'>writer</span>,
-  <span class='no'>actors</span>,
-  <span class='no'>country</span>,
-  <span class='no'>language</span>,
-  <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>
-)</pre>
+    <pre class="usage"><span class='fu'>search_movies</span><span class='op'>(</span>
+  <span class='va'>title</span>,
+  <span class='va'>year</span>,
+  <span class='va'>genre</span>,
+  <span class='va'>director</span>,
+  <span class='va'>writer</span>,
+  <span class='va'>actors</span>,
+  <span class='va'>country</span>,
+  <span class='va'>language</span>,
+  path <span class='op'>=</span> <span class='st'>"."</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -177,11 +182,12 @@ can search in title, year, etc.</p>
     <p>A data frame.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>search_movies</span>(<span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"Hotel"</span>)
-<span class='fu'>search_movies</span>(<span class='kw'>year</span> <span class='kw'>=</span> <span class='fl'>2014</span>:<span class='fl'>2016</span>)
-<span class='fu'>search_movies</span>(<span class='kw'>actors</span> <span class='kw'>=</span> <span class='st'>"Bill Murray"</span>)
-}</div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'>search_movies</span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Hotel"</span><span class='op'>)</span>
+<span class='fu'>search_movies</span><span class='op'>(</span>year <span class='op'>=</span> <span class='fl'>2014</span><span class='op'>:</span><span class='fl'>2016</span><span class='op'>)</span>
+<span class='fu'>search_movies</span><span class='op'>(</span>actors <span class='op'>=</span> <span class='st'>"Bill Murray"</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -193,11 +199,11 @@ can search in title, year, etc.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Nicolas Casajus.</p>
+  <p><p>Developed by Nicolas Casajus, Kevin Cazelles.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -205,6 +211,8 @@ can search in title, year, etc.</p>
 
   
 
+
+  
 
   </body>
 </html>

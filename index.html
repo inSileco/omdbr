@@ -22,6 +22,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -41,19 +43,13 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="reference/index.html">Reference</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/inSileco/omdbr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -71,25 +67,27 @@
   <div class="contents col-md-9">
 <div id="omdbr-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#omdbr-" class="anchor"></a>omdbr <img src="reference/figures/logo1.png" height="170" align="right">
+<a href="#omdbr-" class="anchor" aria-hidden="true"></a>omdbr <img src="reference/figures/logo1.png" height="170" align="right">
 </h1></div>
 <!-- badges: start -->
 
-<p>The package <code>omdbr</code> is an R client to the <a href="http://www.omdbapi.com">OMDb API</a>. User can retrieve informations about movies (title, actors, year, genres, etc.) and download poster (if available) using the <a href="https://yts.mx/api/v2/">YTS API</a>.</p>
+<p>The package <code>omdbr</code> is an R client to the <a href="http://www.omdbapi.com" class="external-link">OMDb API</a>. User can retrieve informations about movies (title, actors, year, genres, etc.) and download poster (if available) using the <a href="https://yts.mx/api/v2/" class="external-link">YTS API</a>.</p>
 <p><br></p>
 <div id="prerequisites" class="section level2">
 <h2 class="hasAnchor">
-<a href="#prerequisites" class="anchor"></a>Prerequisites</h2>
-<p>This package uses the <a href="http://www.omdbapi.com">OMDb API</a> which requires an <strong>API Key</strong>. You can freely obtain your own <a href="http://www.omdbapi.com/apikey.aspx">here</a>. When you’ll use the package <code>omdbr</code> for the first time, you’ll be guided on how to store your personal API key.</p>
+<a href="#prerequisites" class="anchor" aria-hidden="true"></a>Prerequisites</h2>
+<p>This package uses the <a href="http://www.omdbapi.com" class="external-link">OMDb API</a> which requires an <strong>API Key</strong>. You can freely obtain your own <a href="http://www.omdbapi.com/apikey.aspx" class="external-link">here</a>. When you’ll use the package <code>omdbr</code> for the first time, you’ll be guided on how to store your personal API key.</p>
 <p><br></p>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<a href="#installation" class="anchor" aria-hidden="true"></a>Installation</h2>
 <p>To install the <code>omdbr</code> package, run the following command:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"inSileco/omdbr"</span>)</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"inSileco/omdbr"</span><span class="op">)</span></code></pre></div>
 <p>and load the package:</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">omdbr</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/inSileco/omdbr" class="external-link">omdbr</a></span><span class="op">)</span></code></pre></div>
 <p><br></p>
 <p align="center">
 </p>
@@ -99,33 +97,36 @@
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
+<a href="#example" class="anchor" aria-hidden="true"></a>Example</h2>
 <blockquote>
-<p><strong>Objective</strong>: Getting informations and cover for <a href="https://imdb.com/title/tt0838221"><em>The Darjeeling Limited</em></a> movie directed by <a href="https://en.wikipedia.org/wiki/Wes_Anderson">Wes Anderson</a>.</p>
+<p><strong>Objective</strong>: Getting informations and cover for <a href="https://imdb.com/title/tt0838221" class="external-link"><em>The Darjeeling Limited</em></a> movie directed by <a href="https://en.wikipedia.org/wiki/Wes_Anderson" class="external-link">Wes Anderson</a>.</p>
 </blockquote>
 <p><br></p>
 <p><strong>STEP 1</strong>: Finding the IMDb identifier of the movie</p>
 <p>The package <code>omdbr</code> uses the IMDb ID the retrieves informations and cover movie. The function <code><a href="reference/find_imdb_id.html">find_imdb_id()</a></code> tries to find this ID.</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/find_imdb_id.html">find_imdb_id</a></span>(<span class="st">"The Darjeeling Limited"</span>)
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/find_imdb_id.html">find_imdb_id</a></span><span class="op">(</span><span class="st">"The Darjeeling Limited"</span><span class="op">)</span>
 <span class="co">## ────────────────────────────────────────────────────────────────────────────────</span>
 <span class="co">## ℹ Searching 'The Darjeeling Limited' in movies title...</span>
 <span class="co">## ✔ 1 match found!</span>
 <span class="co">##   Returning the best match</span>
-<span class="co">## ────────────────────────────────────────────────────────────────────────────────</span></pre></div>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span>(<span class="no">x</span>)
+<span class="co">## ────────────────────────────────────────────────────────────────────────────────</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
 <span class="co">## 'data.frame':    1 obs. of  3 variables:</span>
 <span class="co">##  $ title : chr "The Darjeeling Limited"</span>
 <span class="co">##  $ year  : chr "2007"</span>
-<span class="co">##  $ imdbid: chr "tt0838221"</span></pre></div>
+<span class="co">##  $ imdbid: chr "tt0838221"</span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">##                    title year    imdbid</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="co">## 1 The Darjeeling Limited 2007 tt0838221</span></span></code></pre></div>
 <p><span class="emoji" data-emoji="bulb">💡</span> The argument <code>year</code> can be used to reduce results.</p>
 <p><br></p>
-<p><span class="emoji" data-emoji="bulb">💡</span> You can also find this ID by searching the movie title on the <a href="https://imdb.com">IMDb website</a> and extract it from the URL. The URL of <em>The Darjeeling Limited</em> is: <a href="https://imdb.com/title/tt0838221" class="uri">https://imdb.com/title/tt0838221</a>.</p>
+<p><span class="emoji" data-emoji="bulb">💡</span> You can also find this ID by searching the movie title on the <a href="https://imdb.com" class="external-link">IMDb website</a> and extract it from the URL. The URL of <em>The Darjeeling Limited</em> is: <a href="https://imdb.com/title/tt0838221" class="external-link uri">https://imdb.com/title/tt0838221</a>.</p>
 <p><br></p>
 <p><strong>STEP 2</strong>: Getting movie informations</p>
 <p>To retrieve informations about the movie we will use the function <code><a href="reference/get_details.html">get_details()</a></code>:</p>
-<div class="sourceCode" id="cb6"><pre class="r"><span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/get_details.html">get_details</a></span>(<span class="kw">imdb_id</span> <span class="kw">=</span> <span class="st">"tt0838221"</span>)</pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_details.html">get_details</a></span><span class="op">(</span>imdb_id <span class="op">=</span> <span class="st">"tt0838221"</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">## ────────────────────────────────────────────────────────────────────────────────</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="co">## </span></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="co">## - imdbid: tt0838221</span></span>
@@ -161,8 +162,9 @@
 <span id="cb7-33"><a href="#cb7-33"></a><span class="co">##   slug: the-darjeeling-limited-2007</span></span>
 <span id="cb7-34"><a href="#cb7-34"></a><span class="co">## </span></span>
 <span id="cb7-35"><a href="#cb7-35"></a><span class="co">## ────────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span>(<span class="no">x</span>)
-<span class="co">## [1] "data.frame"</span></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
+<span class="co">## [1] "data.frame"</span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">##      imdbid  type                  title year runtime     director</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="co">## 1 tt0838221 movie The Darjeeling Limited 2007      91 Wes Anderson</span></span>
 <span id="cb9-3"><a href="#cb9-3"></a><span class="co">##                                           writer</span></span>
@@ -180,7 +182,8 @@
 <p><span class="emoji" data-emoji="bulb">💡</span> Results are stored in <code>data/tt0838221.yml</code> (path can be changed by using the argument <code>path</code>).</p>
 <p><br></p>
 <p>If you want to get access to these data you can use the function <code><a href="reference/read_details.html">read_details()</a></code>:</p>
-<div class="sourceCode" id="cb10"><pre class="r"><span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/read_details.html">read_details</a></span>(<span class="kw">imdb_id</span> <span class="kw">=</span> <span class="st">"tt0838221"</span>)
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/read_details.html">read_details</a></span><span class="op">(</span>imdb_id <span class="op">=</span> <span class="st">"tt0838221"</span><span class="op">)</span>
 <span class="co">## ────────────────────────────────────────────────────────────────────────────────</span>
 <span class="co">## </span>
 <span class="co">## - imdbid: tt0838221</span>
@@ -215,7 +218,7 @@
 <span class="co">##   imdbrating: 7.2</span>
 <span class="co">##   slug: the-darjeeling-limited-2007</span>
 <span class="co">## </span>
-<span class="co">## ────────────────────────────────────────────────────────────────────────────────</span></pre></div>
+<span class="co">## ────────────────────────────────────────────────────────────────────────────────</span></code></pre></div>
 <div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">##      imdbid  type                  title year runtime     director</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="co">## 1 tt0838221 movie The Darjeeling Limited 2007      91 Wes Anderson</span></span>
 <span id="cb11-3"><a href="#cb11-3"></a><span class="co">##                                           writer</span></span>
@@ -233,7 +236,8 @@
 <p><br></p>
 <p><strong>STEP 3</strong>: Getting movie poster</p>
 <p>Now, we can try to download the movie poster with the function <code><a href="reference/get_cover.html">get_cover()</a></code>:</p>
-<div class="sourceCode" id="cb12"><pre class="r"><span class="fu"><a href="reference/get_cover.html">get_cover</a></span>(<span class="kw">imdb_id</span> <span class="kw">=</span> <span class="st">"tt0838221"</span>)</pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/get_cover.html">get_cover</a></span><span class="op">(</span>imdb_id <span class="op">=</span> <span class="st">"tt0838221"</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">## ✔ Cover found for 'tt0838221' !</span></span></code></pre></div>
 <p><br></p>
 <p align="center">
@@ -242,26 +246,26 @@
 
 <p><br></p>
 <p><span class="emoji" data-emoji="bulb">💡</span> Results are stored as follow:</p>
-<div class="sourceCode" id="cb14"><pre class="r">.
-├── covers
-│   └──tt0838221.jpg
-└── data
-    └──tt0838221.yml
-
-2 directories, 2 files</pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>.</span>
+<span id="cb14-2"><a href="#cb14-2"></a>├── covers</span>
+<span id="cb14-3"><a href="#cb14-3"></a>│   └──tt0838221.jpg</span>
+<span id="cb14-4"><a href="#cb14-4"></a>└── data</span>
+<span id="cb14-5"><a href="#cb14-5"></a>    └──tt0838221.yml</span>
+<span id="cb14-6"><a href="#cb14-6"></a></span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="dv">2</span> directories, <span class="dv">2</span> files</span></code></pre></div>
 <p><br></p>
 </div>
 <div id="code-of-conduct" class="section level2">
 <h2 class="hasAnchor">
-<a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
-<p>Please note that the <code>omdbr</code> project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<a href="#code-of-conduct" class="anchor" aria-hidden="true"></a>Code of Conduct</h2>
+<p>Please note that the <code>omdbr</code> project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li>Browse source code at <br><a href="https://github.com/inSileco/omdbr/">https://​github.com/​inSileco/​omdbr/​</a>
 </li>
@@ -269,46 +273,53 @@
 </li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
 <li><small><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></small></li>
 </ul>
 </div>
+
 <div class="community">
-<h2>Community</h2>
+<h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
 </ul>
 </div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Nicolas Casajus <br><small class="roles"> Author, maintainer </small>  </li>
+<li>Kevin Cazelles <br><small class="roles"> Author </small>  </li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/inSileco/omdbr/actions"><img src="https://github.com/inSileco/omdbr/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
-<li><a href="https://www.tidyverse.org/lifecycle/#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Project Status: Stable"></a></li>
-<li><a href="https://cran.r-project.org/package=omdbr"><img src="https://www.r-pkg.org/badges/version/omdbr" alt="CRAN_Status_Badge"></a></li>
-<li><a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3"></a></li>
+<li><a href="https://github.com/inSileco/omdbr/actions" class="external-link"><img src="https://github.com/inSileco/omdbr/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Project Status: Stable"></a></li>
+<li><a href="https://cran.r-project.org/package=omdbr" class="external-link"><img src="https://www.r-pkg.org/badges/version/omdbr" alt="CRAN_Status_Badge"></a></li>
+<li><a href="https://www.gnu.org/licenses/gpl-3.0" class="external-link"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3"></a></li>
 <li><a href="code_of_conduct.html"><img src="https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg" alt="Contributor Covenant"></a></li>
 </ul>
 </div>
-</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Nicolas Casajus.</p>
+  <p></p>
+<p>Developed by Nicolas Casajus, Kevin Cazelles.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p>
 </div>
 
       </footer>
@@ -316,6 +327,8 @@
 
   
 
+
+  
 
   </body>
 </html>
