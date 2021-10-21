@@ -6,10 +6,7 @@
 \alias{omdbr-package}
 \title{omdbr: Retrieve Movies Metadata from OMDb Database}
 \description{
-This package retrieves movies metadata (title, actors, year,
-    genres, etc.) using the OMDb API <http://www.omdbapi.com/> (an API key is
-    required). Cover can also be downloaded from the YTS API
-    <https://yts.mx/api> (no API key required).
+This package retrieves movies metadata (title, actors, year, genres, etc.) using the OMDb API <http://www.omdbapi.com/> (an API key is required). Cover can also be downloaded from the YTS API <https://yts.mx/api> (no API key required).
 }
 \seealso{
 Useful links:
