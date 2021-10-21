@@ -2,7 +2,7 @@
 
 yts_base_url <- function() {
 
-  "https://yts.mx/api/v2/"
+  "https://yts.pm/api/v2/"
 }
 
 omdb_base_url <- function() {
