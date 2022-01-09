@@ -44,7 +44,7 @@ informations."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/li
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Retrieve the IMDb Identifier of a Movie</h1>
-    <small class="dont-index">Source: <a href="https://github.com/inSileco/omdbr/blob/master/R/find_imdb_id.R" class="external-link"><code>R/find_imdb_id.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/inSileco/omdbr/blob/HEAD/R/find_imdb_id.R" class="external-link"><code>R/find_imdb_id.R</code></a></small>
     <div class="hidden name"><code>find_imdb_id.Rd</code></div>
     </div>
 
@@ -55,23 +55,23 @@ specify the release year of the movie. See details below for further
 informations.</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="fu">find_imdb_id</span><span class="op">(</span><span class="va">search</span>, year <span class="op">=</span> <span class="cn">NULL</span>, n_max <span class="op">=</span> <span class="fl">10</span>, sleep <span class="op">=</span> <span class="fl">0.1</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div id="ref-usage">
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">find_imdb_id</span><span class="op">(</span><span class="va">search</span>, year <span class="op">=</span> <span class="cn">NULL</span>, n_max <span class="op">=</span> <span class="fl">10</span>, sleep <span class="op">=</span> <span class="fl">0.1</span>, verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <table class="ref-arguments"><colgroup><col class="name"><col class="desc"></colgroup><tr><th>search</th>
-      <td><p>A movie title to search for.</p></td>
-    </tr><tr><th>year</th>
-      <td><p>(optional) The release year of the movie.</p></td>
-    </tr><tr><th>n_max</th>
-      <td><p>Number of matches to returned (default is 10).</p></td>
-    </tr><tr><th>sleep</th>
-      <td><p>Time interval between two API requests.</p></td>
-    </tr><tr><th>verbose</th>
-      <td><p>A boolean. If <code>TRUE</code>, prints some informations.</p></td>
-    </tr></table></div>
-
-    <div id="ref-sections">
+    <dl><dt>search</dt>
+<dd><p>A movie title to search for.</p></dd>
+<dt>year</dt>
+<dd><p>(optional) The release year of the movie.</p></dd>
+<dt>n_max</dt>
+<dd><p>Number of matches to returned (default is 10).</p></dd>
+<dt>sleep</dt>
+<dd><p>Time interval between two API requests.</p></dd>
+<dt>verbose</dt>
+<dd><p>A boolean. If <code>TRUE</code>, prints some informations.</p></dd>
+</dl></div>
     <div id="value">
     <h2>Value</h2>
     <p>A data frame with:</p><ul><li><p>title: the movie title</p></li>
@@ -93,11 +93,10 @@ title. For example, the English title of the french movie "Le Sens de la
 fête" (2017) is "C'est la vie!" (IMDb ID = tt5699154).</p>
 <p>Only movies are currently implemented.</p>
     </div>
-    </div>
 
-    <div id="examples">
+    <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
 <span class="r-in"><span class="fu">find_imdb_id</span><span class="op">(</span>search <span class="op">=</span> <span class="st">"solo a star wars story"</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">find_imdb_id</span><span class="op">(</span><span class="st">"Star Wars"</span>, year <span class="op">=</span> <span class="fl">2018</span>, n_max <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span>
@@ -116,7 +115,7 @@ fête" (2017) is "C'est la vie!" (IMDb ID = tt5699154).</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
 </div>
 
       </footer></div>

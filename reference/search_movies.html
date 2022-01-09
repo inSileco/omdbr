@@ -42,7 +42,7 @@ can search in title, year, etc."><!-- mathjax --><script src="https://cdnjs.clou
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Search for Movies</h1>
-    <small class="dont-index">Source: <a href="https://github.com/inSileco/omdbr/blob/master/R/search_movies.R" class="external-link"><code>R/search_movies.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/inSileco/omdbr/blob/HEAD/R/search_movies.R" class="external-link"><code>R/search_movies.R</code></a></small>
     <div class="hidden name"><code>search_movies.Rd</code></div>
     </div>
 
@@ -51,7 +51,8 @@ can search in title, year, etc."><!-- mathjax --><script src="https://cdnjs.clou
 can search in title, year, etc.</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="fu">search_movies</span><span class="op">(</span>
+    <div id="ref-usage">
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">search_movies</span><span class="op">(</span>
   <span class="va">title</span>,
   <span class="va">year</span>,
   <span class="va">genre</span>,
@@ -62,39 +63,37 @@ can search in title, year, etc.</p>
   <span class="va">language</span>,
   path <span class="op">=</span> <span class="st">"."</span>
 <span class="op">)</span></code></pre></div>
+    </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <table class="ref-arguments"><colgroup><col class="name"><col class="desc"></colgroup><tr><th>title</th>
-      <td><p>Terms to search for in title field.</p></td>
-    </tr><tr><th>year</th>
-      <td><p>Year(s) to search for in year field.</p></td>
-    </tr><tr><th>genre</th>
-      <td><p>Terms to search for in genres field.</p></td>
-    </tr><tr><th>director</th>
-      <td><p>Name(s) to search for in director field.</p></td>
-    </tr><tr><th>writer</th>
-      <td><p>Name(s) to search for in writer field.</p></td>
-    </tr><tr><th>actors</th>
-      <td><p>Name(s) to search for in actors field.</p></td>
-    </tr><tr><th>country</th>
-      <td><p>Country names to search for in country field.</p></td>
-    </tr><tr><th>language</th>
-      <td><p>Language name(s) to search for in language field.</p></td>
-    </tr><tr><th>path</th>
-      <td><p>The folder containing YAML files (or the root project).</p></td>
-    </tr></table></div>
-
-    <div id="ref-sections">
+    <dl><dt>title</dt>
+<dd><p>Terms to search for in title field.</p></dd>
+<dt>year</dt>
+<dd><p>Year(s) to search for in year field.</p></dd>
+<dt>genre</dt>
+<dd><p>Terms to search for in genres field.</p></dd>
+<dt>director</dt>
+<dd><p>Name(s) to search for in director field.</p></dd>
+<dt>writer</dt>
+<dd><p>Name(s) to search for in writer field.</p></dd>
+<dt>actors</dt>
+<dd><p>Name(s) to search for in actors field.</p></dd>
+<dt>country</dt>
+<dd><p>Country names to search for in country field.</p></dd>
+<dt>language</dt>
+<dd><p>Language name(s) to search for in language field.</p></dd>
+<dt>path</dt>
+<dd><p>The folder containing YAML files (or the root project).</p></dd>
+</dl></div>
     <div id="value">
     <h2>Value</h2>
     <p>A data frame.</p>
     </div>
-    </div>
 
-    <div id="examples">
+    <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
 <span class="r-in"><span class="fu">search_movies</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Hotel"</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu">search_movies</span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2014</span><span class="op">:</span><span class="fl">2016</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu">search_movies</span><span class="op">(</span>actors <span class="op">=</span> <span class="st">"Bill Murray"</span><span class="op">)</span></span>
@@ -113,7 +112,7 @@ can search in title, year, etc.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
 </div>
 
       </footer></div>
