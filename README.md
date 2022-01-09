@@ -14,6 +14,7 @@ Stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Contributor
 Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
+[![r-universe](https://insileco.r-universe.dev/badges/omdbr)](https://insileco.r-universe.dev/ui#builds)
 <!-- badges: end -->
 
 The package `omdbr` is an R client to the [OMDb
