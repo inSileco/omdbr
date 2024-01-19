@@ -1,28 +1,22 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# omdbr <img src="man/figures/logo.png" height="170" align="right"/>
+# omdbr <img src="man/figures/logo.png" height="170px" align="right" style="float:right; height:170px;"/>
 
 <!-- badges: start -->
 
 [![R build
 status](https://github.com/inSileco/omdbr/workflows/R-CMD-check/badge.svg)](https://github.com/inSileco/omdbr/actions)
-[![Project Status:
-Stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/omdbr)](https://cran.r-project.org/package=omdbr)
 [![License: GPL
 v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Contributor
-Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 [![r-universe](https://insileco.r-universe.dev/badges/omdbr)](https://insileco.r-universe.dev/ui#builds)
 <!-- badges: end -->
 
 The package `omdbr` is an R client to the [OMDb
-API](http://www.omdbapi.com). User can retrieve informations about
-movies (title, actors, year, genres, etc.) and download poster (if
-available) using the [YTS API](https://yts.mx/api/v2/).
-
-<br />
+API](http://www.omdbapi.com). User can retrieve information on movies
+(title, actors, year, genres, etc.) and download cover (if available)
+using the [YTS API](https://yts.mx/api/v2/).
 
 ## Prerequisites
 
@@ -31,8 +25,6 @@ an **API Key**. You can freely obtain your own
 [here](http://www.omdbapi.com/apikey.aspx). When you’ll use the package
 `omdbr` for the first time, you’ll be guided on how to store your
 personal API key.
-
-<br />
 
 ## Installation
 
@@ -54,20 +46,16 @@ library(omdbr)
 <img src="man/figures/tt0128445.jpg" width="12.5%" /><img src="man/figures/tt0265666.jpg" width="12.5%" /><img src="man/figures/tt0362270.jpg" width="12.5%" /><img src="man/figures/tt0838221.jpg" width="12.5%" /><img src="man/figures/tt0432283.jpg" width="12.5%" /><img src="man/figures/tt1748122.jpg" width="12.5%" /><img src="man/figures/tt2278388.jpg" width="12.5%" /><img src="man/figures/tt5104604.jpg" width="12.5%" />
 </p>
 
-<br />
-
 ## Example
 
-> **Objective**: Getting informations and cover for [*The Darjeeling
+> **Objective**: Getting information and cover for [*The Darjeeling
 > Limited*](https://imdb.com/title/tt0838221) movie directed by [Wes
 > Anderson](https://en.wikipedia.org/wiki/Wes_Anderson).
 
-<br />
+**STEP 1**: Find the IMDb identifier of the movie
 
-**STEP 1**: Finding the IMDb identifier of the movie
-
-The package `omdbr` uses the IMDb ID the retrieves informations and
-cover movie. The function `find_imdb_id()` tries to find this ID.
+The package `omdbr` uses the IMDb ID the retrieves information and cover
+of a movie. The function `find_imdb_id()` tries to find this ID.
 
 ``` r
 x <- find_imdb_id("The Darjeeling Limited")
@@ -92,17 +80,13 @@ str(x)
 
 :bulb: The argument `year` can be used to reduce results.
 
-<br />
-
 :bulb: You can also find this ID by searching the movie title on the
 [IMDb website](https://imdb.com) and extract it from the URL. The URL of
 *The Darjeeling Limited* is: <https://imdb.com/title/tt0838221>.
 
-<br />
+**STEP 2**: Get movie information
 
-**STEP 2**: Getting movie informations
-
-To retrieve informations about the movie we will use the function
+To retrieve information about the movie we will use the function
 `get_details()`:
 
 ``` r
@@ -167,8 +151,6 @@ class(x)
 :bulb: Results are stored in `data/tt0838221.yml` (path can be changed
 by using the argument `path`).
 
-<br />
-
 If you want to get access to these data you can use the function
 `read_details()`:
 
@@ -198,11 +180,9 @@ x <- read_details(imdb_id = "tt0838221")
     ## 1        7.2 the-darjeeling-limited-2007
     ## 2        7.2 the-darjeeling-limited-2007
 
-<br />
+**STEP 3**: Get movie cover
 
-**STEP 3**: Getting movie poster
-
-Now, we can try to download the movie poster with the function
+Now, we can try to download the movie cover with the function
 `get_cover()`:
 
 ``` r
@@ -211,13 +191,9 @@ get_cover(imdb_id = "tt0838221")
 
     ## ✔ Cover found for 'tt0838221' !
 
-<br />
-
 <p align="center">
 <img src="man/figures/tt0838221.jpg" width="50%" />
 </p>
-
-<br />
 
 :bulb: Results are stored as follow:
 
@@ -230,8 +206,6 @@ get_cover(imdb_id = "tt0838221")
 
 2 directories, 2 files
 ```
-
-<br />
 
 ## Code of Conduct
 

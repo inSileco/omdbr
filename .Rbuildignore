@@ -7,3 +7,6 @@
 ^docs$
 ^pkgdown$
 ^CODE_OF_CONDUCT\.md$
+^.*\.Rproj$
+^\.Rproj\.user$
+^_pkgdown\.yaml$

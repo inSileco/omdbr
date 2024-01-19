@@ -14,23 +14,21 @@ knitr::opts_chunk$set(
 ```
 
 
-omdbr <img src="man/figures/logo.png" height="170" align="right"/>
+omdbr <img src="man/figures/logo.png" height="170px" align="right" style="float:right; height:170px;"/>
 =======================
 
 <!-- badges: start -->
 [![R build status](https://github.com/inSileco/omdbr/workflows/R-CMD-check/badge.svg)](https://github.com/inSileco/omdbr/actions)
-[![Project Status: Stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/omdbr)](https://cran.r-project.org/package=omdbr)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 [![r-universe](https://insileco.r-universe.dev/badges/omdbr)](https://insileco.r-universe.dev/ui#builds)
 <!-- badges: end -->
 
 The package `omdbr` is an R client to the [OMDb API](http://www.omdbapi.com).
-User can retrieve informations about movies (title, actors, year, genres, etc.)
-and download poster (if available) using the [YTS API](https://yts.mx/api/v2/).
+User can retrieve information on movies (title, actors, year, genres, etc.)
+and download cover (if available) using the [YTS API](https://yts.mx/api/v2/).
 
-<br />
+
 
 ## Prerequisites
 
@@ -40,26 +38,25 @@ When you'll use the package `omdbr` for the first time, you'll be guided on
 how to store your personal API key.
 
 
-<br />
 
 ## Installation
 
 To install the `omdbr` package, run the following command:
 
-```{r echo = TRUE, eval = FALSE}
+```{r echo=TRUE, eval=FALSE}
 remotes::install_github("inSileco/omdbr")
 ```
 
 and load the package:
 
-```{r echo = TRUE, eval = TRUE}
+```{r echo=TRUE, eval=TRUE}
 library(omdbr)
 ```
 
 <br />
 
 <p align="center">
-```{r echo = FALSE, eval = TRUE, out.width = "12.5%"}
+```{r echo=FALSE, eval=TRUE, out.width="12.5%"}
 knitr::include_graphics("man/figures/tt0128445.jpg")
 knitr::include_graphics("man/figures/tt0265666.jpg")
 knitr::include_graphics("man/figures/tt0362270.jpg")
@@ -72,114 +69,103 @@ knitr::include_graphics("man/figures/tt5104604.jpg")
 ```
 </p>
 
-<br />
+
 
 ## Example
 
-> **Objective**: Getting informations and cover for
+> **Objective**: Getting information and cover for
 [_The Darjeeling Limited_](https://imdb.com/title/tt0838221) movie directed by
 [Wes Anderson](https://en.wikipedia.org/wiki/Wes_Anderson).
 
-<br />
 
-**STEP 1**: Finding the IMDb identifier of the movie
+**STEP 1**: Find the IMDb identifier of the movie
 
-The package `omdbr` uses the IMDb ID the retrieves informations and cover movie.
+The package `omdbr` uses the IMDb ID the retrieves information and cover of a movie.
 The function `find_imdb_id()` tries to find this ID.
 
-```{r echo = TRUE, eval = TRUE}
+```{r echo=TRUE, eval=TRUE}
 x <- find_imdb_id("The Darjeeling Limited")
 ```
 
-```{r echo = TRUE, eval = TRUE}
+```{r echo=TRUE, eval=TRUE}
 str(x)
 ```
 
-```{r echo = FALSE, eval = TRUE}
+```{r echo=FALSE, eval=TRUE}
 x
 ```
 
 :bulb: The argument `year` can be used to reduce results.
 
-<br />
 
 :bulb: You can also find this ID by searching the movie title on the
 [IMDb website](https://imdb.com) and extract it from the URL.
 The URL of _The Darjeeling Limited_ is:
 [https://imdb.com/title/tt0838221](https://imdb.com/title/tt0838221).
 
-<br />
 
-**STEP 2**: Getting movie informations
+**STEP 2**: Get movie information
 
-```{r echo = FALSE, eval = TRUE}
+```{r echo=FALSE, eval=TRUE}
 imdb_id <- "tt0838221"
 path    <- "README_files/"
 ```
 
-To retrieve informations about the movie we will use the function `get_details()`:
+To retrieve information about the movie we will use the function `get_details()`:
 
-```{r echo = TRUE, eval = FALSE}
+```{r echo=TRUE, eval=FALSE}
 x <- get_details(imdb_id = "tt0838221")
 ```
 
-```{r echo = FALSE, eval = TRUE}
+```{r echo=FALSE, eval=TRUE}
 x <- get_details(imdb_id = "tt0838221", path = path)
 ```
 
-```{r echo = TRUE, eval = TRUE}
+```{r echo=TRUE, eval=TRUE}
 class(x)
 ```
 
-```{r echo = FALSE, eval = TRUE}
+```{r echo=FALSE, eval=TRUE}
 x
 ```
 
 :bulb: Results are stored in `data/tt0838221.yml` (path can be changed
 by using the argument `path`).
 
-<br />
-
 If you want to get access to these data you can use the function `read_details()`:
 
 
-```{r echo = TRUE, eval = TRUE}
+```{r echo=TRUE, eval=TRUE}
 x <- read_details(imdb_id = "tt0838221")
 ```
 
-```{r echo = FALSE, eval = TRUE}
+```{r echo=FALSE, eval=TRUE}
 x
 ```
 
-<br />
+**STEP 3**: Get movie cover
 
-**STEP 3**: Getting movie poster
+Now, we can try to download the movie cover with the function `get_cover()`:
 
-Now, we can try to download the movie poster with the function `get_cover()`:
-
-```{r echo = TRUE, eval = FALSE}
+```{r echo=TRUE, eval=FALSE}
 get_cover(imdb_id = "tt0838221")
 ```
 
-```{r echo = FALSE, eval = TRUE}
+```{r echo=FALSE, eval=TRUE}
 get_cover(imdb_id = "tt0838221", path = path)
 ```
 
 
-<br />
-
 <p align="center">
-```{r echo = FALSE, eval = TRUE, out.width = "50%"}
+```{r echo=FALSE, eval=TRUE, out.width = "50%"}
 covers <- list.files("man/figures", full.names = TRUE)
 knitr::include_graphics("man/figures/tt0838221.jpg")
 ```
 </p>
 
-<br />
-
 :bulb: Results are stored as follow:
 
-```{r echo = TRUE, eval = FALSE}
+```{r echo=TRUE, eval=FALSE}
 .
 ├── covers
 │   └──tt0838221.jpg
@@ -189,7 +175,6 @@ knitr::include_graphics("man/figures/tt0838221.jpg")
 2 directories, 2 files
 ```
 
-<br />
 
 ## Code of Conduct
 
