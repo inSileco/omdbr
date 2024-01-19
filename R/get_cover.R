@@ -65,7 +65,8 @@ get_cover <- function(imdb_id, path = "./covers") {
         utils::download.file(
           url      = image_url,
           destfile = file.path(path, paste0(imdb_id, ".jpg")),
-          quiet    = TRUE
+          quiet    = TRUE,
+          mode     = "wb"
         )},
         error = function(e){}
       )
